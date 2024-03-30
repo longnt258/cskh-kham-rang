@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">user-application</string>
-    <string name="greeting">Good morning</string>
+    <string name="greeting">Good Evening</string>
     <string name="schedule_now">Schedule Now</string>
     <string name="schedule_your_dental_nfree_check_up_today">Schedule your dental \nfree Check-up today.</string>
     <string name="avatar">Avatar</string>
@@ -9,7 +9,6 @@
     <string name="schedule">Schedule</string>
     <string name="doctors">Doctors</string>
     <string name="view_all">View all</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="imagebanner">ImageBanner</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
