@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">user-application</string>
+    <string name="greeting">Good morning</string>
+    <string name="schedule_now">Schedule Now</string>
+    <string name="schedule_your_dental_nfree_check_up_today">Schedule your dental \nfree Check-up today.</string>
+    <string name="avatar">Avatar</string>
+    <string name="service">Service</string>
+    <string name="scaling">Scaling</string>
+    <string name="schedule">Schedule</string>
+    <string name="doctors">Doctors</string>
+    <string name="view_all">View all</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="imagebanner">ImageBanner</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="login">Login</string>
+    <string name="signup">SignUp</string>
+    <string name="back">Back</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="don_t_have_account_create_a_one">Don\'t have account? Create a one</string>
+    <string name="back_to_login">Back to Login!</string>
+</resources>
