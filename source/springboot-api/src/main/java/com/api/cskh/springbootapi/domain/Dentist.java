@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Set;
 
 @Data
@@ -24,14 +24,15 @@ public class Dentist {
     @Column(name = "full_name")
     private String fullName;
 
+    // is active = true, no active = false
     @Column(name = "status")
     private Boolean status;
 
     @Column(name = "start_working_datetime")
-    private Timestamp startDatetime;
+    private Date startDatetime;
 
     @Column(name = "end_working_datetime")
-    private Timestamp endDatetime;
+    private Date endDatetime;
 
     @OneToMany(mappedBy = "dentist")
     private Set<Schedule> schedules;

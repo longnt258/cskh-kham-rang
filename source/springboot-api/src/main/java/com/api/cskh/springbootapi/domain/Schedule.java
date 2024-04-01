@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -27,7 +27,7 @@ public class Schedule {
     private String description;
 
     @Column(name = "booking_datetime")
-    private Timestamp bookingDatetime;
+    private Date bookingDatetime;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

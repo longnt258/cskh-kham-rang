@@ -18,7 +18,7 @@ public class Admin {
     @Column(name = "admin_id")
     private Integer adminId;
 
-    @Column(name = "username")
+    @Column(name = "username", unique = true)
     private String username;
 
     @Column(name = "password")
