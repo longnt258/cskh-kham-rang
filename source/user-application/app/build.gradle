@@ -29,7 +29,6 @@ android {
 }
 
 dependencies {
-    def nav_version = "2.7.7"
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity

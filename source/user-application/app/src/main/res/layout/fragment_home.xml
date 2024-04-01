@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_height="match_parent"
+<ScrollView
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_marginTop="40dp">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp">
+        android:layout_height="wrap_content"
+        >
 
         <LinearLayout
             android:id="@+id/lnGreeting"
@@ -143,6 +141,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:textColor="@color/black"
             android:layout_marginStart="10dp"
             android:id="@+id/tvService"
             android:layout_width="match_parent"
@@ -158,7 +157,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/view_all"
-
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvService"
             app:layout_constraintBottom_toBottomOf="@id/tvService"
@@ -167,18 +166,17 @@
         <LinearLayout
             android:layout_marginTop="10dp"
             android:id="@+id/lnServices"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvService"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal"
-            >
+            app:layout_constraintTop_toBottomOf="@id/tvService">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 app:cardCornerRadius="20dp"
                 android:backgroundTint="#E6E3C8">
 
@@ -189,9 +187,10 @@
                     android:gravity="center">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:src="@mipmap/ic_launcher"/>
+
                     <TextView
                         android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
@@ -201,10 +200,7 @@
                         android:textStyle="bold"
                         android:textColor="@color/black"/>
 
-
                 </LinearLayout>
-
-
 
             </androidx.cardview.widget.CardView>
 
@@ -213,8 +209,8 @@
                 android:layout_height="0dp"/>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 app:cardCornerRadius="20dp"
                 android:backgroundTint="#C9FBEB">
 
@@ -225,8 +221,8 @@
                     android:gravity="center">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:src="@mipmap/ic_launcher"/>
                     <TextView
                         android:layout_marginTop="10dp"
@@ -238,12 +234,48 @@
                         android:textColor="@color/black"/>
 
 
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="0dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvContactSP"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="20dp"
+                android:backgroundTint="#C9FBEB">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_phone"/>
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="@string/support"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"/>
+
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
         <TextView
+            android:textColor="@color/black"
             android:layout_marginTop="20dp"
             android:layout_marginStart="10dp"
             android:id="@+id/tvDoctors"
@@ -256,6 +288,7 @@
             android:textSize="20sp"/>
 
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/tvViewAllDoctors"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -266,9 +299,10 @@
             android:layout_marginEnd="10dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_margin="10dp"
             android:id="@+id/rvDoctors"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDoctors"
@@ -276,4 +310,7 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+
+</ScrollView>
+
+

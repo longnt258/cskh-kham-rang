@@ -21,4 +21,7 @@
     <string name="phone_number">Phone Number</string>
     <string name="don_t_have_account_create_a_one">Don\'t have account? Create a one</string>
     <string name="back_to_login">Back to Login!</string>
+    <string name="support">Support</string>
+    <string name="home">Home</string>
+    <string name="menu">Menu</string>
 </resources>
