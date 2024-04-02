@@ -1,12 +1,11 @@
 package com.api.cskh.springbootapi.controller;
 
-import com.api.cskh.springbootapi.domain.User;
+import com.api.cskh.springbootapi.dto.ResponseDTO;
+import com.api.cskh.springbootapi.dto.UserDTO;
 import com.api.cskh.springbootapi.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,8 +15,8 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
 
-    @GetMapping("/")
-    public ResponseEntity<List<User>> findAllUser() {
-        return ResponseEntity.ok(userService.findAll());
+    @GetMapping()
+    public ResponseEntity<ResponseDTO<List<UserDTO>>> findAllUser() {
+        return ResponseEntity.ok(new ResponseDTO<>(userService.findAll(), "OK"));
     }
 }

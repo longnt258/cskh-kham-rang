@@ -1,10 +1,13 @@
 package com.api.cskh.springbootapi.common.utils;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class DateUtil {
     private static Calendar cal = Calendar.getInstance();
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
 
     public static Date getTimeWithoutDate(int hour, int minute, int second, int millisecond) {
         cal.set(Calendar.HOUR_OF_DAY, hour);
@@ -19,5 +22,9 @@ public class DateUtil {
                                        int hour, int minute, int second) {
         cal.set(year, month - 1, day, hour, minute, second);
         return cal.getTime();
+    }
+
+    public static String convertDate2String(Date date) {
+        return dateFormat.format(date);
     }
 }

@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -36,8 +36,8 @@ public class User {
     private String phoneNumber;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private Set<CallingHistory> callingHistories;
+    private List<CallingHistory> callingHistories;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private Set<Schedule> schedules;
+    private List<Schedule> schedules;
 }

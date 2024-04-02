@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -35,5 +35,5 @@ public class Dentist {
     private Date endDatetime;
 
     @OneToMany(mappedBy = "dentist")
-    private Set<Schedule> schedules;
+    private List<Schedule> schedules;
 }

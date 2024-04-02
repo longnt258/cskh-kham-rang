@@ -13,10 +13,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.Calendar;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Component
 @RequiredArgsConstructor
@@ -99,31 +97,34 @@ public class SeedDataRunner implements CommandLineRunner {
         Schedule schedule1 = Schedule.builder()
                 .title("Schedule 1")
                 .description("Bi sau rang")
-                .bookingDatetime(DateUtil.getTimeWithDate(2024, 04, 10, 9, 0, 0))
+                .bookingDatetime(DateUtil.getTimeWithDate(2024, 4, 10, 9, 0, 0))
+                .user(user2)
+                .dentist(dentist1)
                 .build();
         Schedule schedule2 = Schedule.builder()
                 .title("Schedule 2")
                 .description("Bi sau rang")
-                .bookingDatetime(DateUtil.getTimeWithDate(2024, 04, 15, 16, 0, 0))
+                .bookingDatetime(DateUtil.getTimeWithDate(2024, 4, 15, 16, 0, 0))
+                .user(user3)
+                .dentist(dentist5)
                 .build();
         Schedule schedule3 = Schedule.builder()
                 .title("Schedule 3")
                 .description("Bi sau rang")
-                .bookingDatetime(DateUtil.getTimeWithDate(2024, 04, 20, 30, 0, 0))
+                .bookingDatetime(DateUtil.getTimeWithDate(2024, 4, 20, 30, 0, 0))
+                .user(user1)
+                .dentist(dentist3)
                 .build();
         scheduleRepository.saveAll(List.of(schedule1, schedule2, schedule3));
 
         // Set Schedule for User
-        Set<Schedule> schedules1 = new HashSet<>(); // User 2
-        schedules1.add(schedule1);
+        List<Schedule> schedules1 = new ArrayList(List.of(schedule1)); // User 1
         user1.setSchedules(schedules1);
 
-        Set<Schedule> schedules2 = new HashSet<>(); // User 3
-        schedules2.add(schedule2);
+        List<Schedule> schedules2 = new ArrayList(List.of(schedule2)); // User 3
         user3.setSchedules(schedules2);
 
-        Set<Schedule> schedules3 = new HashSet<>(); // User 1
-        schedules3.add(schedule3);
+        List<Schedule> schedules3 = new ArrayList(List.of(schedule3)); // User 2
         user2.setSchedules(schedules3);
         userRepository.saveAll(List.of(user1, user2, user3));
 
