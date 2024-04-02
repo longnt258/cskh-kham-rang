@@ -2,7 +2,6 @@ package com.api.cskh.springbootapi.service._impl;
 
 import com.api.cskh.springbootapi.common.utils.LogUtil;
 import com.api.cskh.springbootapi.domain.User;
-import com.api.cskh.springbootapi.dto.LoginDTO;
 import com.api.cskh.springbootapi.dto.UserDTO;
 import com.api.cskh.springbootapi.repository.UserRepository;
 import com.api.cskh.springbootapi.service.UserService;

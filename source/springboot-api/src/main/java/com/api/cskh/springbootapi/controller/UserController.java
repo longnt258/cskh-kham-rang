@@ -19,4 +19,5 @@ public class UserController {
     public ResponseEntity<ResponseDTO<List<UserDTO>>> findAllUser() {
         return ResponseEntity.ok(new ResponseDTO<>(userService.findAll(), "OK"));
     }
+
 }

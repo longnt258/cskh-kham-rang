@@ -4,7 +4,7 @@
     <string name="schedule_now">Schedule Now</string>
     <string name="schedule_your_dental_nfree_check_up_today">Schedule your dental \nfree Check-up today.</string>
     <string name="avatar">Avatar</string>
-    <string name="service">Service</string>
+    <string name="service">Services</string>
     <string name="scaling">Scaling</string>
     <string name="schedule">Schedule</string>
     <string name="doctors">Doctors</string>
@@ -21,4 +21,7 @@
     <string name="phone_number">Phone Number</string>
     <string name="don_t_have_account_create_a_one">Don\'t have account? Create a one</string>
     <string name="back_to_login">Back to Login!</string>
+    <string name="support">Support</string>
+    <string name="home">Home</string>
+    <string name="menu">Menu</string>
 </resources>

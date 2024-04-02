@@ -18,5 +18,7 @@ public class WelcomeActivity extends AppCompatActivity {
                     .add(R.id.fragment_container_view, LoginFragment.class, null)
                     .commit();
         }
+
+
     }
 }
