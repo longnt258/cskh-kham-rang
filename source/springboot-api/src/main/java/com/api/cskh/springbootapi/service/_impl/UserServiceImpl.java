@@ -6,7 +6,6 @@ import com.api.cskh.springbootapi.repository.UserRepository;
 import com.api.cskh.springbootapi.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -32,4 +31,5 @@ public class UserServiceImpl implements UserService {
         LogUtil.logger.info("Find User by username");
         return userRepository.findByUsername(username);
     }
+
 }

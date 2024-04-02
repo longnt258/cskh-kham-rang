@@ -189,7 +189,7 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:src="@drawable/baseline_calendar_month_24"/>
 
                     <TextView
                         android:layout_marginTop="10dp"

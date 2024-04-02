@@ -4,31 +4,34 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
+    android:padding="16dp"
     app:cardBackgroundColor="#92FFFFFF"
     app:cardCornerRadius="10dp"
     app:cardElevation="4dp">
 
-    <LinearLayout
+    <RelativeLayout
+        android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:background="#92FFFFFF">
+        android:layout_height="wrap_content">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/item_avatar"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:src="@drawable/baseline_person_4_24"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true"
             app:civ_border_width="1dp"
             app:civ_border_color="#CCCCCC" />
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:id="@+id/textContainer"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/item_avatar"
+            android:orientation="vertical"
             android:layout_marginStart="16dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_marginEnd="16dp">
 
             <TextView
                 android:id="@+id/tvItemName"
@@ -43,37 +46,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tvItemStatus"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="Status:"
                     android:textSize="15sp"
                     android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/tvItemStartTime"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="Start Date:"
                     android:textSize="13sp"
                     android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/tvItemEndTime"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="End Date:"
                     android:textSize="13sp"
                     android:textColor="@color/black" />
             </LinearLayout>
-
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

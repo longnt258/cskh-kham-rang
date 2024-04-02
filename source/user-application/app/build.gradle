@@ -39,6 +39,7 @@ dependencies {
     implementation libs.cardview
     // Retrofit to call API
     implementation libs.retrofit
+    implementation libs.converter.gson
     // Circular Image
     implementation libs.circleimageview
 

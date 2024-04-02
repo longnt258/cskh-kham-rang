@@ -1,6 +1,5 @@
 package vn.com.user_application.adapters;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -9,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import vn.com.user_application.R;
@@ -33,20 +31,20 @@ public class HomeRvDentistAdapter extends RecyclerView.Adapter<HomeRvDentistAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String fullName = dentistList.get(position).getFull_name();
+        String fullName = dentistList.get(position).getFullName();
         String status = dentistList.get(position).isStatus() ? "Ready" : "Not Ready";
-        String startDate = simpleDateFormat.format(dentistList.get(position).getStart_date());
-        String endDate = simpleDateFormat.format(dentistList.get(position).getEnd_date());
+        String startDate = simpleDateFormat.format(dentistList.get(position).getStartDatetime());
+        String endDate = simpleDateFormat.format(dentistList.get(position).getEndDatetime());
 
         holder.tvItemDateStart.setText(String.format("Start date: %s", startDate));
-        holder.tvItemDateEnd.setText(String.format("Start date: %s", endDate));
+        holder.tvItemDateEnd.setText(String.format("End date: %s", endDate));
         holder.tvItemName.setText(fullName);
-        holder.tvItemStatus.setText(String.format("Status: \n%s", status));
+        holder.tvItemStatus.setText(String.format("Status: %s", status));
     }
 
     @Override
     public int getItemCount() {
-        return dentistList.size();
+        return dentistList == null? 0 : dentistList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{

@@ -16,7 +16,6 @@ import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,17 +23,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import vn.com.user_application.Application;
 import vn.com.user_application.R;
 import vn.com.user_application.adapters.HomeRvDentistAdapter;
 import vn.com.user_application.core.fake_datas.DentistRepository;
 import vn.com.user_application.core.models.Dentist;
+import vn.com.user_application.core.network.ApiService;
 import vn.com.user_application.screens.customs.VerticalSpaceItemDecoration;
 
 
@@ -57,9 +60,9 @@ public class HomeFragment extends Fragment {
                 }
             });
     private CardView cardViewContactSP;
-    private TextView tvViewAllDoctor;
-    private List<Dentist> dentistList;
-    private HomeRvDentistAdapter adapter;
+    private TextView tvViewAllDoctor,tvCustomerName;
+    private final List<Dentist> dentistList = new ArrayList<>();
+    HomeRvDentistAdapter adapter = new HomeRvDentistAdapter(dentistList, Application.getSimpleDateFormat());
 
     public HomeFragment() {
         // Required empty public constructor
@@ -77,6 +80,43 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initView(view);
         listeningEvents();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        fetchDentistData();
+    }
+
+
+    private void fetchDentistData() {
+        ApiService.apiService.fetchAllDentists().enqueue(new Callback<List<Dentist>>() {
+            @Override
+            public void onResponse(Call<List<Dentist>> call, Response<List<Dentist>> response) {
+                if (response.isSuccessful()){
+                    // Clear the existing list and add new data from the response
+                    dentistList.clear();
+                    dentistList.addAll(response.body());
+                    // Notify the adapter that the data set has changed
+                    adapter.notifyDataSetChanged();
+                }
+                else {
+                    // Handle unsuccessful response
+                    Log.e("API Error", "Response unsuccessful");
+                    dentistList.clear();
+                    dentistList.addAll(DentistRepository.dentists);
+                    // Notify the adapter that the data set has changed
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Dentist>> call, Throwable throwable) {
+                // Handle network request failure
+                Log.e("Network Error", "Failed to fetch data: " + throwable.getMessage());
+            }
+        });
     }
 
     private void listeningEvents() {
@@ -123,18 +163,18 @@ public class HomeFragment extends Fragment {
 
 
     private void initView(View view) {
+        // Mapping with View
         cardViewContactSP = view.findViewById(R.id.cvContactSP);
-
+        tvCustomerName = view.findViewById(R.id.tvCustomerName);
+        tvCustomerName.setText(Application.currentUser.getFullName());
         RecyclerView dentistsRv = view.findViewById(R.id.rvDoctors);
-        dentistList = DentistRepository.dentists;
+
+        // Config Recycler View
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         dentistsRv.setLayoutManager(layoutManager);
-
-        // Add spacing between items (e.g., 20dp)
+        // Add Space between elements
         dentistsRv.addItemDecoration(new VerticalSpaceItemDecoration(20));
-
-        adapter = new HomeRvDentistAdapter(dentistList, Application.getSimpleDateFormat());
         dentistsRv.setAdapter(adapter);
     }
 }

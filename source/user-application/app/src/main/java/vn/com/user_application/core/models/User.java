@@ -1,21 +1,23 @@
 package vn.com.user_application.core.models;
 
+import java.util.List;
+
 public class User {
-    private int user_id;
+    private int userId;
     private String username;
     private String password;
-    private String full_name;
+    private String fullName;
     private String email;
-    private String phone_number;
+    private String phoneNumber;
+    private List<HistoryCall> callingHistories;
+    private List<Schedule> schedules;
 
-    public User(){}
-
-    public int getUser_id() {
-        return user_id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {
@@ -34,12 +36,12 @@ public class User {
         this.password = password;
     }
 
-    public String getFull_name() {
-        return full_name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getEmail() {
@@ -50,20 +52,39 @@ public class User {
         this.email = email;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public User(int user_id, String username, String password, String full_name, String email, String phone_number) {
-        this.user_id = user_id;
+    public List<HistoryCall> getCallingHistories() {
+
+        return this.callingHistories;
+    }
+
+    public void setCallingHistories(List<HistoryCall> callingHistories) {
+        this.callingHistories = callingHistories;
+    }
+
+    public List<Schedule> getSchedules() {
+        return this.schedules;
+    }
+
+    public void setSchedules(List<Schedule> schedules) {
+        this.schedules = schedules;
+    }
+
+    public User(int userId, String username, String password, String fullName, String email, String phoneNumber, List<HistoryCall> callingHistories, List<Schedule> schedules) {
+        this.userId = userId;
         this.username = username;
         this.password = password;
-        this.full_name = full_name;
+        this.fullName = fullName;
         this.email = email;
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
+        this.callingHistories = callingHistories;
+        this.schedules = schedules;
     }
 }

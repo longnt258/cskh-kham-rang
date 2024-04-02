@@ -4,9 +4,7 @@ import com.api.cskh.springbootapi.domain.User;
 import com.api.cskh.springbootapi.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,4 +18,5 @@ public class UserController {
     public ResponseEntity<List<User>> findAllUser() {
         return ResponseEntity.ok(userService.findAll());
     }
+
 }

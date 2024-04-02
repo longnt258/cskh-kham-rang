@@ -1,22 +1,54 @@
 package vn.com.user_application.core.models;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Dentist {
-    private int dentist_id;
-    private String full_name;
+    private int dentistId;
+    private String fullName;
     private boolean status;
-    private Date start_date;
-    private Date end_date;
+    private Date startDatetime;
+    private Date endDatetime;
+    private List<Schedule> schedules = new ArrayList<>();
 
     public Dentist(){}
 
-    public Dentist(int dentist_id, String full_name, boolean status, Date start_date, Date end_date) {
-        this.dentist_id = dentist_id;
-        this.full_name = full_name;
+    public Dentist(int dentistId, String fullName, boolean status, Date startDatetime, Date endDatetime, List<Schedule> schedules) {
+        this.dentistId = dentistId;
+        this.fullName = fullName;
         this.status = status;
-        this.start_date = start_date;
-        this.end_date = end_date;
+        this.startDatetime = startDatetime;
+        this.endDatetime = endDatetime;
+        this.schedules = schedules;
+    }
+
+    public Dentist(int dentistId, String fullName, boolean status, Date startDatetime, Date endDatetime) {
+        this.dentistId = dentistId;
+        this.fullName = fullName;
+        this.status = status;
+        this.startDatetime = startDatetime;
+        this.endDatetime = endDatetime;
+    }
+
+    @Override
+    public String toString() {
+        return "Dentist{" +
+                "dentistId=" + dentistId +
+                ", fullName='" + fullName + '\'' +
+                ", status=" + status +
+                ", startDatetime=" + startDatetime +
+                ", endDatetime=" + endDatetime +
+                ", schedules=" + schedules +
+                '}';
+    }
+
+    public List<Schedule> getSchedules() {
+        return this.schedules;
+    }
+
+    public void setSchedules(List<Schedule> schedules) {
+        this.schedules = schedules;
     }
 
     public boolean isStatus() {
@@ -27,35 +59,35 @@ public class Dentist {
         this.status = status;
     }
 
-    public int getDentist_id() {
-        return dentist_id;
+    public int getDentistId() {
+        return dentistId;
     }
 
-    public void setDentist_id(int dentist_id) {
-        this.dentist_id = dentist_id;
+    public void setDentistId(int dentistId) {
+        this.dentistId = dentistId;
     }
 
-    public String getFull_name() {
-        return full_name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public Date getStart_date() {
-        return start_date;
+    public Date getStartDatetime() {
+        return startDatetime;
     }
 
-    public void setStart_date(Date start_date) {
-        this.start_date = start_date;
+    public void setStartDatetime(Date startDatetime) {
+        this.startDatetime = startDatetime;
     }
 
-    public Date getEnd_date() {
-        return end_date;
+    public Date getEndDatetime() {
+        return endDatetime;
     }
 
-    public void setEnd_date(Date end_date) {
-        this.end_date = end_date;
+    public void setEndDatetime(Date endDatetime) {
+        this.endDatetime = endDatetime;
     }
 }
