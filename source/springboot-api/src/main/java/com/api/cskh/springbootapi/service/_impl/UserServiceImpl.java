@@ -29,9 +29,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> findById(Integer id) {
+    public UserDTO findById(Integer id) {
         LogUtil.logger.info("Find User by id");
-        return userRepository.findById(id);
+        UserDTO userDTO = null;
+        try {
+            userDTO = new UserDTO(userRepository.findUserByUserId(id));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return userDTO;
     }
 
     @Override
@@ -39,9 +45,7 @@ public class UserServiceImpl implements UserService {
         LogUtil.logger.info("Find User by username");
         UserDTO userDTO = null;
         try {
-            User user = userRepository.findByUsername(username);
-            System.out.println(user==null);
-            userDTO = new UserDTO(user);
+            userDTO = new UserDTO(userRepository.findByUsername(username));
         } catch (Exception e) {
             e.printStackTrace();
         }

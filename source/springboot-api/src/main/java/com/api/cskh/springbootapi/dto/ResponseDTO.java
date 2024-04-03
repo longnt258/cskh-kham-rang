@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class ResponseDTO<T> {
     private T data;
     private String message;
+    private Integer status = 1; // 0: error, 1: success (default 1)
 }

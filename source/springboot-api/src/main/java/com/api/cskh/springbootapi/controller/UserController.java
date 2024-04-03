@@ -17,7 +17,7 @@ public class UserController {
 
     @GetMapping()
     public ResponseEntity<ResponseDTO<List<UserDTO>>> findAllUser() {
-        return ResponseEntity.ok(new ResponseDTO<>(userService.findAll(), "OK"));
+        return ResponseEntity.ok(new ResponseDTO<>(userService.findAll(), "OK", 1));
     }
 
 }
