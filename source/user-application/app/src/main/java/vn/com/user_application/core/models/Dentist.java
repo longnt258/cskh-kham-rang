@@ -8,27 +8,27 @@ public class Dentist {
     private int dentistId;
     private String fullName;
     private boolean status;
-    private Date startDatetime;
-    private Date endDatetime;
+    private Date startDateTime;
+    private Date endDateTime;
     private List<Schedule> schedules = new ArrayList<>();
 
     public Dentist(){}
 
-    public Dentist(int dentistId, String fullName, boolean status, Date startDatetime, Date endDatetime, List<Schedule> schedules) {
+    public Dentist(int dentistId, String fullName, boolean status, Date startDateTime, Date endDateTime, List<Schedule> schedules) {
         this.dentistId = dentistId;
         this.fullName = fullName;
         this.status = status;
-        this.startDatetime = startDatetime;
-        this.endDatetime = endDatetime;
+        this.startDateTime = startDateTime;
+        this.endDateTime = endDateTime;
         this.schedules = schedules;
     }
 
-    public Dentist(int dentistId, String fullName, boolean status, Date startDatetime, Date endDatetime) {
+    public Dentist(int dentistId, String fullName, boolean status, Date startDateTime, Date endDateTime) {
         this.dentistId = dentistId;
         this.fullName = fullName;
         this.status = status;
-        this.startDatetime = startDatetime;
-        this.endDatetime = endDatetime;
+        this.startDateTime = startDateTime;
+        this.endDateTime = endDateTime;
     }
 
     @Override
@@ -37,8 +37,8 @@ public class Dentist {
                 "dentistId=" + dentistId +
                 ", fullName='" + fullName + '\'' +
                 ", status=" + status +
-                ", startDatetime=" + startDatetime +
-                ", endDatetime=" + endDatetime +
+                ", startDatetime=" + startDateTime +
+                ", endDatetime=" + endDateTime +
                 ", schedules=" + schedules +
                 '}';
     }
@@ -75,19 +75,19 @@ public class Dentist {
         this.fullName = fullName;
     }
 
-    public Date getStartDatetime() {
-        return startDatetime;
+    public Date getStartDateTime() {
+        return startDateTime;
     }
 
-    public void setStartDatetime(Date startDatetime) {
-        this.startDatetime = startDatetime;
+    public void setStartDateTime(Date startDateTime) {
+        this.startDateTime = startDateTime;
     }
 
-    public Date getEndDatetime() {
-        return endDatetime;
+    public Date getEndDateTime() {
+        return endDateTime;
     }
 
-    public void setEndDatetime(Date endDatetime) {
-        this.endDatetime = endDatetime;
+    public void setEndDateTime(Date endDateTime) {
+        this.endDateTime = endDateTime;
     }
 }

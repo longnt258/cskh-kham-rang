@@ -16,5 +16,22 @@ namespace manager_application
         {
             InitializeComponent();
         }
+
+
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbSignUp_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

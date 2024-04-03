@@ -1,6 +1,7 @@
 package com.api.cskh.springbootapi.controller;
 
-import com.api.cskh.springbootapi.domain.Dentist;
+import com.api.cskh.springbootapi.dto.DentistDTO;
+import com.api.cskh.springbootapi.dto.ResponseDTO;
 import com.api.cskh.springbootapi.service.DentistService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +19,8 @@ public class DentistController {
     private final DentistService dentistService;
 
     @GetMapping
-    public ResponseEntity<List<Dentist>> findAll(){
-        return ResponseEntity.ok(dentistService.findAll());
+    public ResponseEntity<ResponseDTO<List<DentistDTO>>> findAll(){
+        return ResponseEntity.ok(new ResponseDTO<>(dentistService.findAll(),"OK"));
     }
 
 }

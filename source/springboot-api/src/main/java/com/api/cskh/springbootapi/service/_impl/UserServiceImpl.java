@@ -39,7 +39,9 @@ public class UserServiceImpl implements UserService {
         LogUtil.logger.info("Find User by username");
         UserDTO userDTO = null;
         try {
-            userDTO = new UserDTO(userRepository.findByUsername(username));
+            User user = userRepository.findByUsername(username);
+            System.out.println(user==null);
+            userDTO = new UserDTO(user);
         } catch (Exception e) {
             e.printStackTrace();
         }

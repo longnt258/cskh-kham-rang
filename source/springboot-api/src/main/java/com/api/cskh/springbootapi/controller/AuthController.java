@@ -28,7 +28,6 @@ public class AuthController {
             response.setMessage("OK");
             return ResponseEntity.ok(response);
         }
-
         response.setMessage("Username or password is not corrected!");
         return ResponseEntity.badRequest().body(response);
     }

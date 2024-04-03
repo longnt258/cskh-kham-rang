@@ -19,7 +19,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,12 +30,11 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 import vn.com.user_application.Application;
 import vn.com.user_application.R;
 import vn.com.user_application.adapters.HomeRvDentistAdapter;
-import vn.com.user_application.core.fake_datas.DentistRepository;
 import vn.com.user_application.core.models.Dentist;
+import vn.com.user_application.core.models.Response;
 import vn.com.user_application.core.network.ApiService;
 import vn.com.user_application.screens.customs.VerticalSpaceItemDecoration;
 
@@ -79,45 +77,32 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView(view);
+        fetchDentistData();
         listeningEvents();
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        fetchDentistData();
-    }
-
-
     private void fetchDentistData() {
-        ApiService.apiService.fetchAllDentists().enqueue(new Callback<List<Dentist>>() {
-            @Override
-            public void onResponse(Call<List<Dentist>> call, Response<List<Dentist>> response) {
-                if (response.isSuccessful()){
-                    // Clear the existing list and add new data from the response
-                    dentistList.clear();
-                    dentistList.addAll(response.body());
-                    // Notify the adapter that the data set has changed
-                    adapter.notifyDataSetChanged();
-                }
-                else {
-                    // Handle unsuccessful response
-                    Log.e("API Error", "Response unsuccessful");
-                    dentistList.clear();
-                    dentistList.addAll(DentistRepository.dentists);
-                    // Notify the adapter that the data set has changed
-                    adapter.notifyDataSetChanged();
-                }
-            }
+        ApiService.apiService.fetchAllDentists().enqueue(
+                new Callback<Response<List<Dentist>>>() {
+                    @Override
+                    public void onResponse(Call<Response<List<Dentist>>> call, retrofit2.Response<Response<List<Dentist>>> response) {
+                        if(response.isSuccessful()){
+                            if (response.body() != null && response.body().getMessage().equals("OK")){
+                                dentistList.clear();
+                                dentistList.addAll(response.body().getData());
+                                adapter.notifyDataSetChanged();
+                            }
+                        }
+                    }
 
-            @Override
-            public void onFailure(Call<List<Dentist>> call, Throwable throwable) {
-                // Handle network request failure
-                Log.e("Network Error", "Failed to fetch data: " + throwable.getMessage());
-            }
-        });
+                    @Override
+                    public void onFailure(Call<Response<List<Dentist>>> call, Throwable throwable) {
+                        Toast.makeText(requireContext(),"Failed To Get Data, switch to local data", Toast.LENGTH_SHORT).show();
+                    }
+                }
+        );
     }
+
 
     private void listeningEvents() {
         cardViewContactSP.setOnClickListener(v ->{
@@ -160,7 +145,6 @@ public class HomeFragment extends Fragment {
         intent.setData(Uri.parse("tel:" + "+1 555-123-4567"));
         startActivity(intent);
     }
-
 
     private void initView(View view) {
         // Mapping with View

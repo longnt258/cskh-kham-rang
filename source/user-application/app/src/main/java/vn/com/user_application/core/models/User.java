@@ -9,8 +9,8 @@ public class User {
     private String fullName;
     private String email;
     private String phoneNumber;
-    private List<HistoryCall> callingHistories;
     private List<Schedule> schedules;
+    public User(){}
 
     public int getUserId() {
         return userId;
@@ -60,14 +60,6 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public List<HistoryCall> getCallingHistories() {
-
-        return this.callingHistories;
-    }
-
-    public void setCallingHistories(List<HistoryCall> callingHistories) {
-        this.callingHistories = callingHistories;
-    }
 
     public List<Schedule> getSchedules() {
         return this.schedules;
@@ -77,14 +69,13 @@ public class User {
         this.schedules = schedules;
     }
 
-    public User(int userId, String username, String password, String fullName, String email, String phoneNumber, List<HistoryCall> callingHistories, List<Schedule> schedules) {
+    public User(int userId, String username, String password, String fullName, String email, String phoneNumber, List<Schedule> schedules) {
         this.userId = userId;
         this.username = username;
         this.password = password;
         this.fullName = fullName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.callingHistories = callingHistories;
         this.schedules = schedules;
     }
 }

@@ -16,6 +16,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 import vn.com.user_application.Application;
 import vn.com.user_application.core.models.Dentist;
+import vn.com.user_application.core.models.Response;
 import vn.com.user_application.core.models.User;
 
 public interface ApiService {
@@ -30,10 +31,10 @@ public interface ApiService {
 
 
     @GET("dentists")
-    Call<List<Dentist>> fetchAllDentists();
+    Call<Response<List<Dentist>>> fetchAllDentists();
 
-    @POST("user/login")
-    Call<User> login(@Query("userName") String userName, @Query("password") String password);
+    @POST("auth/login")
+    Call<Response<User>> login(@Body User user);
 
     @POST("user/register")
     Call<User> signUp(@Body User user);

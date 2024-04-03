@@ -2,11 +2,6 @@ package vn.com.user_application.screens.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,17 +11,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 import vn.com.user_application.Application;
 import vn.com.user_application.R;
+import vn.com.user_application.core.models.Response;
 import vn.com.user_application.core.models.User;
 import vn.com.user_application.core.network.ApiService;
 import vn.com.user_application.screens.MainActivity;
-import vn.com.user_application.screens.WelcomeActivity;
 
 
 public class LoginFragment extends Fragment {
@@ -65,29 +65,42 @@ public class LoginFragment extends Fragment {
         tvDontHaveAcount.setOnClickListener(v -> requireActivity()
                 .getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fragment_container_view,SignUpFragment.class,null).commit());
+                .replace(R.id.fragment_container_view, SignUpFragment.class, null).commit());
 
         btnLogin.setOnClickListener(v -> {
-//            startActivity(new Intent(requireActivity(), MainActivity.class));
-//            requireActivity().finish();
             performLogin();
         });
     }
 
     private void performLogin() {
         String userName = edUserName.getText().toString().trim();
-        String password = edPassword.getText().toString().trim();
-        ApiService.apiService.login(userName, password).enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+        String password = Objects.requireNonNull(edPassword.getText()).toString().trim();
+        if (userName.isEmpty()) {
+            edUserName.setError("User name is required");
+        } else if (password.isEmpty()) {
+            edPassword.setError("Password is required");
+        } else {
+            User user = new User();
+            user.setUsername(userName);
+            user.setPassword(password);
+            ApiService.apiService.login(user).enqueue(new Callback<Response<User>>() {
+                @Override
+                public void onResponse(Call<Response<User>> call, retrofit2.Response<Response<User>> response) {
+                    if (response.code() == 200 && response.body().getMessage().equals("OK")) {
+                        Application.currentUser = response.body().getData();
+                        startActivity(new Intent(requireActivity(), MainActivity.class));
+                        requireActivity().finish();
+                    } else {
+                        Toast.makeText(requireActivity(), "Username or Password is wrong", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
-            }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable throwable) {
-                Log.e("Login response", throwable.getMessage());
-            }
-        });
+                @Override
+                public void onFailure(Call<Response<User>> call, Throwable throwable) {
+                    Log.e("Login", throwable.getMessage());
+                }
+            });
+        }
     }
 
 

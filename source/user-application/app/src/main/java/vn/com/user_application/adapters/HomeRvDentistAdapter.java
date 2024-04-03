@@ -33,8 +33,8 @@ public class HomeRvDentistAdapter extends RecyclerView.Adapter<HomeRvDentistAdap
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String fullName = dentistList.get(position).getFullName();
         String status = dentistList.get(position).isStatus() ? "Ready" : "Not Ready";
-        String startDate = simpleDateFormat.format(dentistList.get(position).getStartDatetime());
-        String endDate = simpleDateFormat.format(dentistList.get(position).getEndDatetime());
+        String startDate = dentistList.get(position).getStartDateTime() != null? simpleDateFormat.format(dentistList.get(position).getStartDateTime()) : "";
+        String endDate = dentistList.get(position).getEndDateTime() != null? simpleDateFormat.format(dentistList.get(position).getEndDateTime()) : "";
 
         holder.tvItemDateStart.setText(String.format("Start date: %s", startDate));
         holder.tvItemDateEnd.setText(String.format("End date: %s", endDate));
