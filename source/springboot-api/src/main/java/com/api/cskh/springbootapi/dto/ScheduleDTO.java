@@ -8,15 +8,26 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class ScheduleDTO {
+    private String code;
     private String title;
     private String description;
     private String bookDatetime;
     private String dentistName;
+    private String userFullName;
 
-    public ScheduleDTO(Schedule schedule) {
+    // watcher: 0 --> admin, 1 --> user, 2 --> dentist
+    public ScheduleDTO(Schedule schedule, int watcher) {
+        code = schedule.getCode();
         title = schedule.getTitle();
         description = schedule.getDescription();
         bookDatetime = DateUtil.convertDate2String(schedule.getBookingDatetime());
-        dentistName = schedule.getDentist() != null ? schedule.getDentist().getFullName() : "";
+        if(watcher == 0) {
+            dentistName = schedule.getDentist() != null ? schedule.getDentist().getFullName() : "";
+            userFullName = schedule.getUser() != null ? schedule.getUser().getFullName() : "";
+        } else if (watcher == 1) {
+            dentistName = schedule.getDentist() != null ? schedule.getDentist().getFullName() : "";
+        } else if (watcher == 2) {
+            userFullName = schedule.getUser() != null ? schedule.getUser().getFullName() : "";
+        }
     }
 }

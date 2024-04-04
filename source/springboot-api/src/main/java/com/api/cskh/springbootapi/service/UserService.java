@@ -10,4 +10,6 @@ public interface UserService {
     UserDTO findById(Integer id);
 
     UserDTO findByUsername(String username);
+
+    UserDTO findByPhoneNumber(String phoneNumber);
 }

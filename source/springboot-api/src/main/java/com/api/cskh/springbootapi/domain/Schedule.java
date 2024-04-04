@@ -20,6 +20,9 @@ public class Schedule {
     @Column(name = "schedule_id")
     private Integer scheduleId;
 
+    @Column(name = "code", unique = true, nullable = false)
+    private String code;
+
     @Column(name = "title")
     private String title;
 

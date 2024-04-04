@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 @Data
 @NoArgsConstructor
@@ -25,7 +26,15 @@ public class UserDTO {
         email = user.getEmail();
         phoneNumber = user.getPhoneNumber();
         for(Schedule schedule : user.getSchedules()) {
-            schedules.add(new ScheduleDTO(schedule));
+            schedules.add(new ScheduleDTO(schedule, 1));
         }
+    }
+
+    public UserDTO(UserRegisterDTO userRegisterDTO) {
+        username = userRegisterDTO.getUsername().trim();
+        password = userRegisterDTO.getPassword();
+        fullName = userRegisterDTO.getFullName();
+        email = userRegisterDTO.getEmail();
+        phoneNumber = userRegisterDTO.getPhoneNumber().trim();
     }
 }

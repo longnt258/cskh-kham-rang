@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class DateUtil {
     private static Calendar cal = Calendar.getInstance();
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
     public static Date getTimeWithoutDate(int hour, int minute, int second, int millisecond) {
         cal.set(Calendar.HOUR_OF_DAY, hour);
