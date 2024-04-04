@@ -3,10 +3,18 @@ package vn.com.user_application.core.models;
 public class Response<T> {
     private T data;
     private String message;
+    private int status = 1;
 
-    public Response(T data, String message) {
+    public Response() {}
+
+    public Response(T data, String message, int status) {
         this.data = data;
         this.message = message;
+        this.status = status;
+    }
+
+    public int getStatus(){
+        return this.status;
     }
 
     public T getData() {

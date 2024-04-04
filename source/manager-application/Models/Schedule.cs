@@ -8,5 +8,9 @@ namespace manager_application.models
 {
     internal class Schedule
     {
+        public string Title {  get; set; }
+        public string Description { get; set; }
+        public string BookDateTime { get; set; }
+        public string DentistName {  get; set; }
     }
 }

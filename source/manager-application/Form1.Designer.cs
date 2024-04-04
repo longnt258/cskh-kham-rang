@@ -1,6 +1,6 @@
 ﻿namespace manager_application
 {
-    partial class Form1
+    partial class LoginFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbUserName = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lbSignUp = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -80,15 +80,15 @@
             this.tbPassword.Size = new System.Drawing.Size(205, 20);
             this.tbPassword.TabIndex = 4;
             // 
-            // button1
+            // btnCancel
             // 
-            this.button1.Location = new System.Drawing.Point(200, 177);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Cancle";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCancel.Location = new System.Drawing.Point(200, 177);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 5;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // btnLogin
             // 
@@ -98,7 +98,7 @@
             this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // lbSignUp
             // 
@@ -108,23 +108,25 @@
             this.lbSignUp.Size = new System.Drawing.Size(172, 13);
             this.lbSignUp.TabIndex = 7;
             this.lbSignUp.Text = "Don\'t have an account? Click here";
-            this.lbSignUp.Click += new System.EventHandler(this.lbSignUp_Click);
+            this.lbSignUp.Click += new System.EventHandler(this.LbSignUp_Click);
             // 
-            // Form1
+            // LoginFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(287, 212);
             this.Controls.Add(this.lbSignUp);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUserName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Login);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Name = "LoginFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,7 +139,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbUserName;
         private System.Windows.Forms.TextBox tbPassword;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lbSignUp;
     }

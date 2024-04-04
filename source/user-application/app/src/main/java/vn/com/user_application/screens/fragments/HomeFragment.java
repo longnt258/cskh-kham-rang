@@ -87,7 +87,7 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onResponse(Call<Response<List<Dentist>>> call, retrofit2.Response<Response<List<Dentist>>> response) {
                         if(response.isSuccessful()){
-                            if (response.body() != null && response.body().getMessage().equals("OK")){
+                            if (response.body() != null && response.body().getStatus() == 1){
                                 dentistList.clear();
                                 dentistList.addAll(response.body().getData());
                                 adapter.notifyDataSetChanged();

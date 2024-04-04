@@ -85,8 +85,8 @@ public class LoginFragment extends Fragment {
             user.setPassword(password);
             ApiService.apiService.login(user).enqueue(new Callback<Response<User>>() {
                 @Override
-                public void onResponse(Call<Response<User>> call, retrofit2.Response<Response<User>> response) {
-                    if (response.code() == 200 && response.body().getMessage().equals("OK")) {
+                public void onResponse( Call<Response<User>> call, retrofit2.Response<Response<User>> response) {
+                    if (response.body() != null && response.body().getStatus() == 1) {
                         Application.currentUser = response.body().getData();
                         startActivity(new Intent(requireActivity(), MainActivity.class));
                         requireActivity().finish();
@@ -96,8 +96,8 @@ public class LoginFragment extends Fragment {
                 }
 
                 @Override
-                public void onFailure(Call<Response<User>> call, Throwable throwable) {
-                    Log.e("Login", throwable.getMessage());
+                public void onFailure( Call<Response<User>> call, Throwable throwable) {
+                    throwable.printStackTrace();
                 }
             });
         }

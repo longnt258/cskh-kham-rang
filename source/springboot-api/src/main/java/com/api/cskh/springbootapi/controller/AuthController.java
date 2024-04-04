@@ -33,7 +33,7 @@ public class AuthController {
         }
         response.setMessage("Username or password is not corrected!");
         response.setStatus(0);
-        return ResponseEntity.badRequest().body(response);
+        return ResponseEntity.ok().body(response);
     }
 
     @PostMapping("/admin/login")
@@ -47,6 +47,6 @@ public class AuthController {
         }
         response.setMessage("Username or password is not corrected!");
         response.setStatus(0);
-        return ResponseEntity.badRequest().body(response);
+        return ResponseEntity.ok().body(response);
     }
 }
