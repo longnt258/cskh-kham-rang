@@ -44,7 +44,7 @@
             // 
             this.panelContent.Location = new System.Drawing.Point(220, 2);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1045, 681);
+            this.panelContent.Size = new System.Drawing.Size(1032, 667);
             this.panelContent.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -57,7 +57,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btnHistoryCall, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnCustomer, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnSchedule, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(-1, 187);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 187);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -65,15 +65,15 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(218, 495);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(214, 482);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // btnSetting
             // 
-            this.btnSetting.Location = new System.Drawing.Point(0, 396);
+            this.btnSetting.Location = new System.Drawing.Point(0, 384);
             this.btnSetting.Margin = new System.Windows.Forms.Padding(0);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(218, 99);
+            this.btnSetting.Size = new System.Drawing.Size(218, 98);
             this.btnSetting.TabIndex = 9;
             this.btnSetting.Text = "Setting";
             this.btnSetting.UseVisualStyleBackColor = true;
@@ -84,7 +84,7 @@
             this.btnDentist.Location = new System.Drawing.Point(0, 0);
             this.btnDentist.Margin = new System.Windows.Forms.Padding(0);
             this.btnDentist.Name = "btnDentist";
-            this.btnDentist.Size = new System.Drawing.Size(218, 99);
+            this.btnDentist.Size = new System.Drawing.Size(218, 96);
             this.btnDentist.TabIndex = 5;
             this.btnDentist.Text = "Dentists";
             this.btnDentist.UseVisualStyleBackColor = true;
@@ -92,10 +92,10 @@
             // 
             // btnHistoryCall
             // 
-            this.btnHistoryCall.Location = new System.Drawing.Point(0, 297);
+            this.btnHistoryCall.Location = new System.Drawing.Point(0, 288);
             this.btnHistoryCall.Margin = new System.Windows.Forms.Padding(0);
             this.btnHistoryCall.Name = "btnHistoryCall";
-            this.btnHistoryCall.Size = new System.Drawing.Size(218, 99);
+            this.btnHistoryCall.Size = new System.Drawing.Size(218, 96);
             this.btnHistoryCall.TabIndex = 8;
             this.btnHistoryCall.Text = "HistoryCall";
             this.btnHistoryCall.UseVisualStyleBackColor = true;
@@ -103,10 +103,10 @@
             // 
             // btnCustomer
             // 
-            this.btnCustomer.Location = new System.Drawing.Point(0, 99);
+            this.btnCustomer.Location = new System.Drawing.Point(0, 96);
             this.btnCustomer.Margin = new System.Windows.Forms.Padding(0);
             this.btnCustomer.Name = "btnCustomer";
-            this.btnCustomer.Size = new System.Drawing.Size(218, 99);
+            this.btnCustomer.Size = new System.Drawing.Size(218, 96);
             this.btnCustomer.TabIndex = 6;
             this.btnCustomer.Text = "Customer";
             this.btnCustomer.UseVisualStyleBackColor = true;
@@ -114,10 +114,10 @@
             // 
             // btnSchedule
             // 
-            this.btnSchedule.Location = new System.Drawing.Point(0, 198);
+            this.btnSchedule.Location = new System.Drawing.Point(0, 192);
             this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
             this.btnSchedule.Name = "btnSchedule";
-            this.btnSchedule.Size = new System.Drawing.Size(218, 99);
+            this.btnSchedule.Size = new System.Drawing.Size(218, 96);
             this.btnSchedule.TabIndex = 7;
             this.btnSchedule.Text = "Schedule";
             this.btnSchedule.UseVisualStyleBackColor = true;
