@@ -51,4 +51,16 @@ public class UserServiceImpl implements UserService {
         }
         return userDTO;
     }
+
+    @Override
+    public UserDTO findByPhoneNumber(String phoneNumber) {
+        LogUtil.logger.info("Find User by phone number");
+        UserDTO userDTO = null;
+        try {
+            userDTO = new UserDTO(userRepository.findByPhoneNumber(phoneNumber));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return userDTO;
+    }
 }

@@ -24,9 +24,8 @@ public class DentistDTO {
         this.startDateTime = dentist.getStartDatetime();
         this.endDateTime = dentist.getEndDatetime();
         this.status = dentist.getStatus();
-        this.schedules = dentist.getSchedules()
-                .stream()
-                .map(ScheduleDTO::new)
-                .collect(Collectors.toList());
+        dentist.getSchedules().forEach(s -> {
+            schedules.add(new ScheduleDTO(s, 2));
+        });
     }
 }
