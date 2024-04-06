@@ -32,8 +32,8 @@ namespace manager_application
             {
                 new DentistPanel(),
                 new CustomerPanel(),
-                new HistoryCallPanel(),
                 new SchedulePanel(),
+                new HistoryCallPanel(),
                 new SettingPanel()
             };
             controller = new DashboardNavigationController(list, panelContent);
@@ -67,14 +67,11 @@ namespace manager_application
 
         private void DashboardFrm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Prompt the user with a confirmation dialog
             if (MessageBox.Show("Are you sure you want to exit?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
-                // If the user clicks No, cancel the closing event to prevent the form from closing
                 e.Cancel = true;
             }
-            // If the user clicks Yes, the closing event will proceed and the form will close
-            previousFrom.Close();
+            else { previousFrom.Close(); }
         }
     }
 }

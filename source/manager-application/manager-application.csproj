@@ -110,7 +110,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthServices.cs" />
     <Compile Include="Services\APIService.cs" />
-    <Compile Include="Services\DentistAPI.cs" />
+    <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\DentistService.cs" />
+    <Compile Include="Services\ScheduleService.cs" />
     <Compile Include="SignUpFrm.cs">
       <SubType>Form</SubType>
     </Compile>

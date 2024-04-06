@@ -3,24 +3,18 @@ using manager_application.Models;
 using manager_application.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace manager_application.UserControlls
 {
     public partial class DentistPanel : UserControl
     {
-        private DentistAPI dentistAPI;
+        private readonly DentistService dentistAPI;
 
         public DentistPanel()
         {
             InitializeComponent();
-            dentistAPI = new DentistAPI();
+            dentistAPI = new DentistService();
             InitView();
         }
 
@@ -30,11 +24,10 @@ namespace manager_application.UserControlls
             Response<List<Dentist>> res = await dentistAPI.GetAllDentist(); 
             if(res.Status == 1) 
             {
-                dataGridView1.Rows.Clear();
                 for (int i= 0; i < res.data.Count; i++)
                 {
                     Dentist dentist = res.data[i];
-                    dataGridView1.Rows.Add(new Object[] 
+                    dataGridView1.Rows.Add(new object[] 
                     { 
                         i.ToString(),
                         dentist.FullName,
@@ -44,10 +37,9 @@ namespace manager_application.UserControlls
                     });
                 }
             }
-
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
+        private void BtnRefresh_Click(object sender, EventArgs e)
         {
             InitView();
         }

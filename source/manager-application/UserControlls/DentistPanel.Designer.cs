@@ -56,7 +56,7 @@
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(3, 310);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1042, 371);
+            this.panel1.Size = new System.Drawing.Size(1036, 371);
             this.panel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -92,7 +92,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridView1.Size = new System.Drawing.Size(1042, 371);
+            this.dataGridView1.Size = new System.Drawing.Size(1036, 371);
             this.dataGridView1.TabIndex = 0;
             // 
             // colSTT
@@ -203,7 +203,7 @@
             this.btnRefresh.TabIndex = 0;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.btnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
             // label2
             // 

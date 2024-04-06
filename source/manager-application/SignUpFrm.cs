@@ -24,7 +24,7 @@ namespace manager_application
         private void LbLogIn_Click(object sender, EventArgs e)
         {
             loginFrm.Show();
-            Close();
+            Hide();
         }
 
         private void BtnSignUp_Click(object sender, EventArgs e)

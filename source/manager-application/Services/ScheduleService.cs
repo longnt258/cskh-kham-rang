@@ -9,24 +9,26 @@ using System.Threading.Tasks;
 
 namespace manager_application.Services
 {
-    internal class DentistAPI
+    internal class ScheduleService
     {
         private readonly HttpClient _client = APIService.instance.GetHttpClient();
         private HttpResponseMessage _response;
 
-        public async Task<Response<List<Dentist>>> GetAllDentist()
+        public async Task<Response<List<Schedule>>> GetAllSchedules()
         {
-            try 
+            try
             {
-                _response = await _client.GetAsync("dentists");
+                _response = await _client.GetAsync("schedule");
                 _response.EnsureSuccessStatusCode();
-                if(_response.IsSuccessStatusCode)
+                if (_response.IsSuccessStatusCode)
                 {
-                    Response<List<Dentist>> list = await _response.Content.ReadAsAsync<Response<List<Dentist>>>();
+                    Response<List<Schedule>> list = await _response.Content.ReadAsAsync<Response<List<Schedule>>>();
                     return list;
                 }
                 return null;
             }
-            catch(Exception ex) { throw new Exception(ex.Message,ex); } }
+            catch (Exception ex) { throw new Exception(ex.Message, ex); }
         }
+    }
 }
+
