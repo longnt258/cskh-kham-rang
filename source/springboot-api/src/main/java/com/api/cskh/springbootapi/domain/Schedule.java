@@ -1,17 +1,16 @@
 package com.api.cskh.springbootapi.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Builder
+//@Builder
 @Entity
 @Table(name = "t_schedule")
 public class Schedule {
@@ -32,11 +31,24 @@ public class Schedule {
     @Column(name = "booking_datetime")
     private Date bookingDatetime;
 
+    @Column(name = "status", nullable = false)
+    private Integer status;
+
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "dentist_id")
+    @JoinColumn(name = "dentist_id", nullable = false)
     private Dentist dentist;
+
+    public Schedule(String title, String description, Date bookingDatetime, User user, Dentist dentist) {
+        this.code = UUID.randomUUID().toString();
+        this.title = title;
+        this.description = description;
+        this.bookingDatetime = bookingDatetime;
+        this.status = 1;
+        this.user = user;
+        this.dentist = dentist;
+    }
 }

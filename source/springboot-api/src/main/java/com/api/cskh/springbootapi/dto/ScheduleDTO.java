@@ -11,16 +11,20 @@ public class ScheduleDTO {
     private String code;
     private String title;
     private String description;
-    private String bookDatetime;
+    private String bookingDatetime;
+    private Integer status;
     private String dentistName;
     private String userFullName;
+    private Integer userId;
+    private Integer dentistId;
 
     // watcher: 0 --> admin, 1 --> user, 2 --> dentist
     public ScheduleDTO(Schedule schedule, int watcher) {
         code = schedule.getCode();
         title = schedule.getTitle();
         description = schedule.getDescription();
-        bookDatetime = DateUtil.convertDate2String(schedule.getBookingDatetime());
+        status = schedule.getStatus();
+        bookingDatetime = DateUtil.convertDate2String(schedule.getBookingDatetime());
         if(watcher == 0) {
             dentistName = schedule.getDentist() != null ? schedule.getDentist().getFullName() : "";
             userFullName = schedule.getUser() != null ? schedule.getUser().getFullName() : "";

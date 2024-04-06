@@ -1,8 +1,10 @@
 package com.api.cskh.springbootapi.dto;
 
+import com.api.cskh.springbootapi.common.utils.DateUtil;
 import com.api.cskh.springbootapi.domain.Dentist;
 import lombok.*;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -27,5 +29,12 @@ public class DentistDTO {
         dentist.getSchedules().forEach(s -> {
             schedules.add(new ScheduleDTO(s, 2));
         });
+    }
+
+    public DentistDTO(DentistRegisterDTO dentistRegisterDTO) throws ParseException {
+        fullName = dentistRegisterDTO.getFullName();
+        status = dentistRegisterDTO.getStatus() == 1 ? true : false;
+        startDateTime = DateUtil.convertString2Date(dentistRegisterDTO.getStartDatetime());
+        endDateTime = DateUtil.convertString2Date(dentistRegisterDTO.getEndDatetime());
     }
 }

@@ -1,5 +1,6 @@
 package com.api.cskh.springbootapi.controller;
 
+import com.api.cskh.springbootapi.common.Constants;
 import com.api.cskh.springbootapi.dto.*;
 import com.api.cskh.springbootapi.service.AdminService;
 import com.api.cskh.springbootapi.service.AuthService;
@@ -27,10 +28,10 @@ public class AuthController {
         UserDTO userDTO = userService.findByUsername(loginDTO.getUsername());
         if(userDTO != null && Objects.equals(loginDTO.getPassword(), userDTO.getPassword())) {
             response.setData(userDTO);
-            response.setMessage("OK");
+            response.setMessage(Constants.OK);
             return ResponseEntity.ok(response);
         }
-        response.setMessage("Username or password is not corrected!");
+        response.setMessage(Constants.IS_NOT_CORRECT("Username or password"));
         response.setStatus(0);
         return ResponseEntity.ok().body(response);
     }
@@ -41,10 +42,10 @@ public class AuthController {
         AdminDTO adminDTO = adminService.findByUsername(loginDTO.getUsername());
         if(adminDTO != null && Objects.equals(loginDTO.getPassword(), adminDTO.getPassword())) {
             response.setData(adminDTO);
-            response.setMessage("OK");
+            response.setMessage(Constants.OK);
             return ResponseEntity.ok(response);
         }
-        response.setMessage("Username or password is not corrected!");
+        response.setMessage(Constants.IS_NOT_CORRECT("Username or password"));
         response.setStatus(0);
         return ResponseEntity.ok().body(response);
     }
@@ -54,7 +55,7 @@ public class AuthController {
         ResponseDTO<UserDTO> response;
         UserDTO userDTO = null;
         try {
-            String message = "OK";
+            String message = Constants.OK;
             int status = 1;
 
             // check input not empty
@@ -63,32 +64,32 @@ public class AuthController {
             }
 
             if(userRegisterDTO.getUsername() == null || "".equals(userRegisterDTO.getUsername())) {
-                message = "Username is empty!";
+                message = Constants.IS_EMPTY("Username");
                 status = 0;
             } else if(userRegisterDTO.getPassword() == null || "".equals(userRegisterDTO.getPassword())) {
-                message = "Password is empty!";
+                message = Constants.IS_EMPTY("Password");
                 status = 0;
             } else if(userRegisterDTO.getPhoneNumber() == null || "".equals(userRegisterDTO.getPhoneNumber())) {
-                message = "Phone number is empty!";
+                message = Constants.IS_EMPTY("Phone number");
                 status = 0;
             } else if(userService.findByUsername(userRegisterDTO.getUsername().trim()) != null) {
-                message = "Username is existed!";
+                message = Constants.IS_EXISTED("Username");
                 status = 0;
             } else if(userService.findByPhoneNumber(userRegisterDTO.getPhoneNumber().trim()) != null) {
-                message = "Phone number is existed!";
+                message = Constants.IS_EXISTED("Phone number");
                 status = 0;
             }
 
             if(status == 1) {
                 userDTO = authService.userRegister(new UserDTO(userRegisterDTO));
                 if(userDTO == null) {
-                    message = "Failure register!";
+                    message = Constants.FAILURE_REGISTER;
                     status = 0;
                 }
             }
             response = new ResponseDTO<>(userDTO, message, status);
         } catch (Exception e) {
-            response = new ResponseDTO<>(null, "Error while register!", 0);
+            response = new ResponseDTO<>(null, Constants.REGISTER_ERROR, 0);
         }
 
         return ResponseEntity.ok(response);

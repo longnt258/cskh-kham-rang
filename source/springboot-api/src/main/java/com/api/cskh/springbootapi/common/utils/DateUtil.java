@@ -1,6 +1,6 @@
 package com.api.cskh.springbootapi.common.utils;
 
-import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -26,5 +26,9 @@ public class DateUtil {
 
     public static String convertDate2String(Date date) {
         return dateFormat.format(date);
+    }
+
+    public static Date convertString2Date(String dateStr) throws ParseException {
+        return dateFormat.parse(dateStr);
     }
 }
