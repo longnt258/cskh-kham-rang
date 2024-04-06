@@ -24,4 +24,6 @@ public class DentistController {
     public ResponseEntity<ResponseDTO<List<DentistDTO>>> findAll(){
         return ResponseEntity.ok(new ResponseDTO<>(dentistService.findAll(),"OK", 1));
     }
+
+
 }

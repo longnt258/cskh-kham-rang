@@ -94,30 +94,9 @@ public class SeedDataRunner implements CommandLineRunner {
         dentistRepository.saveAll(List.of(dentist1, dentist2, dentist3, dentist4, dentist5));
 
         // Create Schedules
-        Schedule schedule1 = Schedule.builder()
-                .code("ABC")
-                .title("Schedule 1")
-                .description("Bi sau rang")
-                .bookingDatetime(DateUtil.getTimeWithDate(2024, 4, 10, 9, 0, 0))
-                .user(user2)
-                .dentist(dentist1)
-                .build();
-        Schedule schedule2 = Schedule.builder()
-                .code("DEF")
-                .title("Schedule 2")
-                .description("Bi sau rang")
-                .bookingDatetime(DateUtil.getTimeWithDate(2024, 4, 15, 16, 0, 0))
-                .user(user3)
-                .dentist(dentist5)
-                .build();
-        Schedule schedule3 = Schedule.builder()
-                .code("QWE")
-                .title("Schedule 3")
-                .description("Bi sau rang")
-                .bookingDatetime(DateUtil.getTimeWithDate(2024, 4, 20, 19, 0, 0))
-                .user(user1)
-                .dentist(dentist3)
-                .build();
+        Schedule schedule1 = new Schedule("Schedule 1", "Bi sau rang", DateUtil.getTimeWithDate(2024, 4, 10, 9, 0, 0), user2, dentist1);
+        Schedule schedule2 = new Schedule("Schedule 2", "Bi sau rang", DateUtil.getTimeWithDate(2024, 4, 15, 16, 0, 0), user3, dentist5);
+        Schedule schedule3 = new Schedule("Schedule 3", "Bi sau rang", DateUtil.getTimeWithDate(2024, 4, 20, 19, 0, 0), user1, dentist3);
         scheduleRepository.saveAll(List.of(schedule1, schedule2, schedule3));
 
         // Set Schedule for User

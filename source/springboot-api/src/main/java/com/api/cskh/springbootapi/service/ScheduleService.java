@@ -12,4 +12,8 @@ public interface ScheduleService {
     List<ScheduleDTO> findByUserId(Integer userId);
 
     List<ScheduleDTO> findByDentistId(Integer dentistId);
+
+    ScheduleDTO createByAdmin(ScheduleDTO scheduleDTO);
+
+    ScheduleDTO update(String scheduleCode, ScheduleDTO inputScheduleUpdate);
 }
