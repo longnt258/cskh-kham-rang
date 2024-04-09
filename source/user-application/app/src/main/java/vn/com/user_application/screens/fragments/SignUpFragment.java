@@ -64,10 +64,12 @@ public class SignUpFragment extends Fragment {
     }
 
     private void addListeningEvents() {
-        tvBackToLogin.setOnClickListener(v->
+        tvBackToLogin.setOnClickListener(v ->
                 requireActivity()
                         .getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.fragment_container_view, LoginFragment.class,null));
+                        .replace(R.id.fragment_container_view, new LoginFragment())
+                        .commit());
     }
+
 }

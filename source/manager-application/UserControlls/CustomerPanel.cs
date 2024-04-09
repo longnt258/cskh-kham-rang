@@ -50,7 +50,7 @@ namespace manager_application.UserControlls
             InitView();
         }
 
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
             {
@@ -71,6 +71,7 @@ namespace manager_application.UserControlls
                 m.Show(dataGridView1, dataGridView1.PointToClient(Cursor.Position));
             }
         }
+
 
         private void MenuItemShowSchedules_Click(object sender, EventArgs e)
         {

@@ -30,7 +30,7 @@ public interface ApiService {
             .create(ApiService.class);
 
 
-    @GET("dentists")
+    @GET("dentist")
     Call<Response<List<Dentist>>> fetchAllDentists();
 
     @POST("auth/login")

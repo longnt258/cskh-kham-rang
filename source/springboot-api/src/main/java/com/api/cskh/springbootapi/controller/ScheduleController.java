@@ -51,7 +51,6 @@ public class ScheduleController {
         try {
             String message = Constants.OK;
             int status = 1;
-
             if(scheduleDTO.getTitle() == null || Objects.equals(scheduleDTO.getTitle(), "")) {
                 message = Constants.IS_EMPTY("Title");
                 status = 0;
@@ -67,7 +66,6 @@ public class ScheduleController {
                     status = 0;
                 }
             }
-
             response = new ResponseDTO<>(scheduleDTOResponse, message, status);
         } catch (Exception e) {
             response = new ResponseDTO<>(null, Constants.REGISTER_ERROR, 0);
@@ -87,13 +85,11 @@ public class ScheduleController {
             message = Constants.FAILURE_UPDATE;
             status = 0;
         }
-
         if(status == 1) {
             response = new ResponseDTO<>(scheduleService.findByCode(scheduleCode), message, status);
         } else {
             response = new ResponseDTO<>(null, message, status);
         }
-
         return ResponseEntity.ok(response);
     }
 }

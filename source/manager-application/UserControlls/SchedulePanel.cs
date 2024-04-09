@@ -34,7 +34,6 @@ namespace manager_application.UserControlls
                     Schedule schedule = response.data[i];
                     dataGridView1.Rows.Add(new object[] {
                         i.ToString(),
-                        schedule.Code,
                         schedule.Title,
                         schedule.Description,
                         schedule.BookDateTime.ToString(),
@@ -48,6 +47,12 @@ namespace manager_application.UserControlls
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
             InitView();
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            AddScheduleFrm addScheduleFrm = new AddScheduleFrm();
+            addScheduleFrm.ShowDialog();
         }
     }
 }

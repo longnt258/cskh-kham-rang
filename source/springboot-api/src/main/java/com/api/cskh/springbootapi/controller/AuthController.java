@@ -79,7 +79,6 @@ public class AuthController {
                 message = Constants.IS_EXISTED("Phone number");
                 status = 0;
             }
-
             if(status == 1) {
                 userDTO = authService.userRegister(new UserDTO(userRegisterDTO));
                 if(userDTO == null) {

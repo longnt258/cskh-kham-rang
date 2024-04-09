@@ -20,6 +20,7 @@ namespace manager_application
 
         public DashboardFrm(Form previouseFrm)
         {
+            
             InitializeComponent();
             previousFrom = previouseFrm;
             previouseFrm.Hide();

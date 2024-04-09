@@ -68,7 +68,7 @@
             this.textBox1.Location = new System.Drawing.Point(110, 86);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(165, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
@@ -76,7 +76,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(165, 20);
-            this.textBox2.TabIndex = 4;
+            this.textBox2.TabIndex = 2;
             // 
             // label3
             // 
@@ -93,7 +93,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.PasswordChar = '*';
             this.textBox3.Size = new System.Drawing.Size(165, 20);
-            this.textBox3.TabIndex = 6;
+            this.textBox3.TabIndex = 3;
             // 
             // label4
             // 
@@ -109,7 +109,7 @@
             this.textBox4.Location = new System.Drawing.Point(110, 164);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(165, 20);
-            this.textBox4.TabIndex = 8;
+            this.textBox4.TabIndex = 4;
             // 
             // label5
             // 
@@ -125,7 +125,7 @@
             this.textBox5.Location = new System.Drawing.Point(110, 190);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(165, 20);
-            this.textBox5.TabIndex = 10;
+            this.textBox5.TabIndex = 5;
             // 
             // label6
             // 
@@ -152,7 +152,7 @@
             this.btnSignUp.Location = new System.Drawing.Point(119, 261);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(75, 23);
-            this.btnSignUp.TabIndex = 12;
+            this.btnSignUp.TabIndex = 6;
             this.btnSignUp.Text = "SignUp";
             this.btnSignUp.UseVisualStyleBackColor = true;
             // 
@@ -161,7 +161,7 @@
             this.btnCancel.Location = new System.Drawing.Point(200, 261);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 11;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
