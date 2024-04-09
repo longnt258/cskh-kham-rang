@@ -1,5 +1,6 @@
 package com.api.cskh.springbootapi.controller;
 
+import com.api.cskh.springbootapi.common.Constants;
 import com.api.cskh.springbootapi.dto.ResponseDTO;
 import com.api.cskh.springbootapi.dto.UserDTO;
 import com.api.cskh.springbootapi.service.UserService;
@@ -17,6 +18,16 @@ public class UserController {
 
     @GetMapping()
     public ResponseEntity<ResponseDTO<List<UserDTO>>> findAllUser() {
-        return ResponseEntity.ok(new ResponseDTO<>(userService.findAll(), "OK", 1));
+        return ResponseEntity.ok(new ResponseDTO<>(userService.findAll(), Constants.OK, 1));
+    }
+
+    @GetMapping("/find")
+    public ResponseEntity<ResponseDTO<UserDTO>> findByPhone(@RequestParam String phoneNumber) {
+        ResponseDTO<UserDTO> response;
+        UserDTO userDTO = userService.findByPhoneNumber(phoneNumber);
+        if(userDTO == null) {
+            return ResponseEntity.ok(new ResponseDTO<>(null, Constants.NOT_FOUND("Phone number"), 0));
+        }
+        return ResponseEntity.ok(new ResponseDTO<>(userDTO, Constants.OK, 1));
     }
 }
