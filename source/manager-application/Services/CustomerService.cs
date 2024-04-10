@@ -29,6 +29,32 @@ namespace manager_application.Services
             }
             catch (Exception ex) { throw new Exception(ex.Message, ex); }
         }
+
+        public async Task<Response<Customer>> FindCustomerByPhone(string phone)
+        {
+            try
+            {
+                // Sử dụng query parameter để truyền phone number
+                var response = await _client.GetAsync($"user/find?phoneNumber={phone}");
+
+                // Kiểm tra xem response có thành công hay không
+                if (response.IsSuccessStatusCode)
+                {
+                    // Đọc nội dung của response và trả về
+                    var customer = await response.Content.ReadAsAsync<Response<Customer>>();
+                    return customer;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+               throw new Exception(ex.Message, ex);
+            }
+        }
+
     }
 }
 

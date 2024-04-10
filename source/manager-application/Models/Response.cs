@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,13 @@ namespace manager_application.Models
 {
     internal class Response<T>
     {
-        public Response() { }
+        [JsonProperty(PropertyName = "data")]
         public T data { get; set; }
+        [JsonProperty(PropertyName = "message")]
         public string Message { get; set; }
+        [JsonProperty(PropertyName = "status")]
         public int Status { get; set; }
+
+        Response() { }
     }
 }

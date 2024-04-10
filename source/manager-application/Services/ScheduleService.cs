@@ -29,6 +29,22 @@ namespace manager_application.Services
             }
             catch (Exception ex) { throw new Exception(ex.Message, ex); }
         }
+
+        public async Task<Response<Schedule>> insert(Schedule schedule)
+        {
+            try
+            {
+                _response = await _client.PostAsJsonAsync("schedule/create-by-admin", schedule);
+                _response.EnsureSuccessStatusCode();
+                if(_response.IsSuccessStatusCode)
+                {
+                    Response<Schedule> response =  await _response.Content.ReadAsAsync<Response<Schedule>>();
+                    return response;
+                }
+                return null;
+            }
+            catch (Exception ex) { throw new Exception(ex.Message, ex); }
+        }
     }
 }
 

@@ -26,4 +26,12 @@ public class Response<T> {
         return message;
     }
 
+    @Override
+    public String toString() {
+        return "Response{" +
+                "data=" + data +
+                ", message='" + message + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

@@ -1,16 +1,36 @@
 package vn.com.user_application.core.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class User {
     private int userId;
+    @SerializedName("username")
     private String username;
+    @SerializedName("password")
     private String password;
+    @SerializedName("fullName")
     private String fullName;
+    @SerializedName("email")
     private String email;
+    @SerializedName("phoneNumber")
     private String phoneNumber;
     private List<Schedule> schedules;
     public User(){}
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", schedules=" + schedules +
+                '}';
+    }
 
     public int getUserId() {
         return userId;

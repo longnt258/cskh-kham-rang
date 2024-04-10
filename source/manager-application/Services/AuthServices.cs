@@ -37,6 +37,20 @@ namespace manager_application.Services
                 throw new Exception(ex.Message, ex);
             }
         }
+
+        public async Task<Response<Customer>> registerNewCus(Customer user)
+        {
+            try
+            {
+                _response = await _client.PostAsJsonAsync("auth/user/register", user);
+                Response<Customer> responseData = await _response.Content.ReadAsAsync<Response<Customer>>();
+                return responseData;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+        }
     }
 }
 

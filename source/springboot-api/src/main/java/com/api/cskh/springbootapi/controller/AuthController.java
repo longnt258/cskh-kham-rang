@@ -57,7 +57,6 @@ public class AuthController {
         try {
             String message = Constants.OK;
             int status = 1;
-
             // check input not empty
             if(userRegisterDTO.getFullName() == null || "".equals(userRegisterDTO.getFullName())) {
                 userRegisterDTO.setFullName("Unknown");
@@ -90,7 +89,6 @@ public class AuthController {
         } catch (Exception e) {
             response = new ResponseDTO<>(null, Constants.REGISTER_ERROR, 0);
         }
-
         return ResponseEntity.ok(response);
     }
 }

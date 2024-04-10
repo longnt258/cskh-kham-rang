@@ -36,6 +36,6 @@ public interface ApiService {
     @POST("auth/login")
     Call<Response<User>> login(@Body User user);
 
-    @POST("user/register")
-    Call<User> signUp(@Body User user);
+    @POST("auth/user/register")
+    Call<Response<User>> register(@Body User user);
 }

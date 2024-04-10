@@ -84,6 +84,7 @@ public class LoginFragment extends Fragment {
             user.setUsername(userName);
             user.setPassword(password);
             ApiService.apiService.login(user).enqueue(new Callback<Response<User>>() {
+
                 @Override
                 public void onResponse( Call<Response<User>> call, retrofit2.Response<Response<User>> response) {
                     if (response.body() != null && response.body().getStatus() == 1) {

@@ -23,5 +23,9 @@ namespace manager_application.models
         public string UserFullName {  get; set; }
         [JsonProperty(PropertyName = "status")]
         public int Status {  get; set; }
+        [JsonProperty(PropertyName ="userId", NullValueHandling = NullValueHandling.Ignore)]
+        public int UserId { get; set; }
+        [JsonProperty(PropertyName = "dentistId",NullValueHandling = NullValueHandling.Ignore)]
+        public int DentistId { get; set; }
     }
 }
