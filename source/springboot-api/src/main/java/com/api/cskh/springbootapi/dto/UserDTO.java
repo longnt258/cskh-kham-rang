@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 
 @Data
 @NoArgsConstructor
 public class UserDTO {
+    private Integer userId;
     private String username;
     private String password;
     private String fullName;
@@ -20,6 +20,7 @@ public class UserDTO {
     private List<ScheduleDTO> schedules = new LinkedList<>();
 
     public UserDTO(User user) {
+        userId = user.getUserId();
         username = user.getUsername();
         password = user.getPassword();
         fullName = user.getFullName();

@@ -23,7 +23,6 @@ public class UserController {
 
     @GetMapping("/find")
     public ResponseEntity<ResponseDTO<UserDTO>> findByPhone(@RequestParam String phoneNumber) {
-        ResponseDTO<UserDTO> response;
         UserDTO userDTO = userService.findByPhoneNumber(phoneNumber);
         if(userDTO == null) {
             return ResponseEntity.ok(new ResponseDTO<>(null, Constants.NOT_FOUND("Phone number"), 0));
