@@ -24,7 +24,7 @@ namespace manager_application.UserControlls
             InitView();
         }
 
-        private async void InitView()
+        public async void InitView()
         {
             dataGridView1.Rows.Clear();
             Response<List<Schedule>> response = await service.GetAllSchedules();

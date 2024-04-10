@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,15 @@ namespace manager_application.models
     internal class Dentist
     {
         public Dentist() { }
+        [JsonProperty(PropertyName = "dentistId")]
         public int DentistId { get; set; }
+        [JsonProperty(PropertyName = "fullName")]
         public string FullName {  get; set; }
+        [JsonProperty(PropertyName = "status")]
         public bool Status {  get; set; }
+        [JsonProperty(PropertyName = "endDateTime")]
         public DateTime EndDateTime { get; set; }
+        [JsonProperty(PropertyName = "startDateTime")]
         public DateTime StartDateTime { get; set; }
     }
 }

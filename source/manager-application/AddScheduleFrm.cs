@@ -18,12 +18,14 @@ namespace manager_application
         private readonly CustomerService customerService;
         private readonly DentistService dentistService;
         private readonly AuthServices authServices;
+        private readonly ScheduleService scheduleService;
         private List<Dentist> dentists;
         private Dentist selectedDentist;
         private Customer cus;
 
         public AddScheduleFrm()
         {
+            scheduleService = new ScheduleService();
             customerService = new CustomerService();
             dentistService = new DentistService();
             authServices = new AuthServices();
@@ -82,12 +84,13 @@ namespace manager_application
             selectedDentist = dentists[comboBox1.SelectedIndex];
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
+        private async void btnOk_Click(object sender, EventArgs e)
         {
             string selectedDate = DateTimePickerBookDate.Value.Date.ToString("MM/dd/yyyy");
             string selectedTime = TimePickerBookTime.Value.Date.ToString("HH:mm:ss");
             string dateTimeSelected = $"{selectedDate} {selectedTime}";
             string description = tbDes.Text;
+            string title = rtbTitle.Text;
 
             if (selectedDentist == null)
             {
@@ -101,9 +104,20 @@ namespace manager_application
                 DentistId = selectedDentist.DentistId,
                 Description = description,
                 Status = 1,
-             
-
+                UserId = cus.Id,
+                Title = title
             };
+
+            Response<Schedule> res = await scheduleService.insert(schedule);
+            if(res.Status == 1)
+            {
+                MessageBox.Show("Đặt lịch thành công!");
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi xảy ra! Vui lòng thử lại");
+            }
             
         }
 

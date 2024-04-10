@@ -30,6 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rtbTitle = new System.Windows.Forms.RichTextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.tbDes = new System.Windows.Forms.RichTextBox();
@@ -54,6 +56,7 @@
             this.tbPhoneNumber = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -77,6 +80,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.rtbTitle);
+            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnOk);
             this.panel1.Controls.Add(this.tbDes);
@@ -90,13 +95,31 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(717, 669);
+            this.panel1.Size = new System.Drawing.Size(717, 757);
             this.panel1.TabIndex = 0;
+            // 
+            // rtbTitle
+            // 
+            this.rtbTitle.Location = new System.Drawing.Point(12, 457);
+            this.rtbTitle.Name = "rtbTitle";
+            this.rtbTitle.Size = new System.Drawing.Size(692, 70);
+            this.rtbTitle.TabIndex = 15;
+            this.rtbTitle.Text = "";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(13, 413);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(120, 25);
+            this.label12.TabIndex = 14;
+            this.label12.Text = "Chuẩn đoán";
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(614, 608);
+            this.btnCancel.Location = new System.Drawing.Point(613, 705);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 37);
             this.btnCancel.TabIndex = 13;
@@ -107,7 +130,7 @@
             // btnOk
             // 
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOk.Location = new System.Drawing.Point(516, 608);
+            this.btnOk.Location = new System.Drawing.Point(515, 705);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(91, 37);
             this.btnOk.TabIndex = 12;
@@ -117,9 +140,9 @@
             // 
             // tbDes
             // 
-            this.tbDes.Location = new System.Drawing.Point(12, 443);
+            this.tbDes.Location = new System.Drawing.Point(10, 576);
             this.tbDes.Name = "tbDes";
-            this.tbDes.Size = new System.Drawing.Size(694, 140);
+            this.tbDes.Size = new System.Drawing.Size(694, 123);
             this.tbDes.TabIndex = 11;
             this.tbDes.Text = "";
             // 
@@ -230,7 +253,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 415);
+            this.label3.Location = new System.Drawing.Point(12, 539);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 25);
             this.label3.TabIndex = 3;
@@ -239,6 +262,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.tbCusEmail);
             this.panel2.Controls.Add(this.label7);
@@ -255,7 +279,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(532, 76);
+            this.button1.Location = new System.Drawing.Point(525, 49);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(132, 28);
             this.button1.TabIndex = 14;
@@ -307,7 +331,7 @@
             // 
             this.btnFindCus.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.btnFindCus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFindCus.Location = new System.Drawing.Point(532, 46);
+            this.btnFindCus.Location = new System.Drawing.Point(525, 19);
             this.btnFindCus.Name = "btnFindCus";
             this.btnFindCus.Size = new System.Drawing.Size(132, 24);
             this.btnFindCus.TabIndex = 2;
@@ -346,11 +370,20 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Thông tin khách hàng";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(503, 88);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(177, 39);
+            this.label13.TabIndex = 15;
+            this.label13.Text = "* Note :\r\nUsername mặt định là số điện thoại \r\nPassword mặc định là 123456";
+            // 
             // AddScheduleFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(717, 669);
+            this.ClientSize = new System.Drawing.Size(717, 757);
             this.Controls.Add(this.panel1);
             this.Name = "AddScheduleFrm";
             this.Text = "AddScheduleFrm";
@@ -394,5 +427,8 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.RichTextBox rtbTitle;
+        private System.Windows.Forms.Label label13;
     }
 }

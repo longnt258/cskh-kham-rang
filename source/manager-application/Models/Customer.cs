@@ -9,6 +9,8 @@ namespace manager_application.models
 {
     internal class Customer
     {
+        [JsonProperty(PropertyName = "userId")]
+        public int Id { get; set; }
         [JsonProperty(PropertyName = "fullName")]
         public string FullName { get; set; }
         [JsonProperty(PropertyName = "email")]
