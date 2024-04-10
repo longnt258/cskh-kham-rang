@@ -31,6 +31,7 @@ public class Schedule {
     @Column(name = "booking_datetime")
     private Date bookingDatetime;
 
+    // default 1 = pending, 2 = success, 0 = cancel
     @Column(name = "status", nullable = false)
     private Integer status;
 
