@@ -7,4 +7,12 @@ import java.util.List;
 
 public interface DentistService {
     List<DentistDTO> findAll();
+
+    DentistDTO findById(Integer dentistId);
+
+    DentistDTO createByAdmin(DentistDTO dentistDTO);
+
+    DentistDTO update(Integer dentistId, DentistDTO dentistDTO);
+
+//    DentistDTO delete(Integer dentistId);
 }
