@@ -1,7 +1,6 @@
 package com.api.cskh.springbootapi.repository;
 
 import com.api.cskh.springbootapi.domain.Schedule;
-import com.api.cskh.springbootapi.dto.ScheduleDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
