@@ -3,26 +3,30 @@ package vn.com.user_application.core.models;
 import java.util.Date;
 
 public class Schedule {
-    private int schedule_id;
+    private String code;
     private String title;
     private String description;
-    private Date booking_date;
+    private String bookingDatetime;
+    private int status;
+    private String dentistName;
+    private String userFullName;
 
-    public Schedule(int schedule_id, String title, String description, Date booking_date) {
-        this.schedule_id = schedule_id;
+    public Schedule(String code, String title, String description, String bookingDatetime, int status, String dentistName, String userFullName) {
+        this.code = code;
         this.title = title;
         this.description = description;
-        this.booking_date = booking_date;
+        this.bookingDatetime = bookingDatetime;
+        this.status = status;
+        this.dentistName = dentistName;
+        this.userFullName = userFullName;
     }
 
-    public Schedule(){}
-
-    public int getSchedule_id() {
-        return schedule_id;
+    public String getCode() {
+        return code;
     }
 
-    public void setSchedule_id(int schedule_id) {
-        this.schedule_id = schedule_id;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getTitle() {
@@ -41,11 +45,35 @@ public class Schedule {
         this.description = description;
     }
 
-    public Date getBooking_date() {
-        return booking_date;
+    public String getBookingDatetime() {
+        return bookingDatetime;
     }
 
-    public void setBooking_date(Date booking_date) {
-        this.booking_date = booking_date;
+    public void setBookingDatetime(String bookingDatetime) {
+        this.bookingDatetime = bookingDatetime;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getDentistName() {
+        return dentistName;
+    }
+
+    public void setDentistName(String dentistName) {
+        this.dentistName = dentistName;
+    }
+
+    public String getUserFullName() {
+        return userFullName;
+    }
+
+    public void setUserFullName(String userFullName) {
+        this.userFullName = userFullName;
     }
 }

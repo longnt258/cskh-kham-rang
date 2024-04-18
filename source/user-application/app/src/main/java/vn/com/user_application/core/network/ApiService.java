@@ -17,6 +17,7 @@ import retrofit2.http.Query;
 import vn.com.user_application.Application;
 import vn.com.user_application.core.models.Dentist;
 import vn.com.user_application.core.models.Response;
+import vn.com.user_application.core.models.Schedule;
 import vn.com.user_application.core.models.User;
 
 public interface ApiService {
@@ -38,4 +39,8 @@ public interface ApiService {
 
     @POST("auth/user/register")
     Call<Response<User>> register(@Body User user);
+
+    @GET("schedule/user")
+    Call<Response<List<Schedule>>> getUserSchedule(@Query("userId") int id);
+
 }

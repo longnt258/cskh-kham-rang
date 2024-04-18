@@ -89,7 +89,11 @@ public class HomeFragment extends Fragment {
                         if(response.isSuccessful()){
                             if (response.body() != null && response.body().getStatus() == 1){
                                 dentistList.clear();
-                                dentistList.addAll(response.body().getData());
+                                for(Dentist dentist : response.body().getData()){
+                                    if(dentist.isStatus()){
+                                        dentistList.add(dentist);
+                                    }
+                                }
                                 adapter.notifyDataSetChanged();
                             }
                         }

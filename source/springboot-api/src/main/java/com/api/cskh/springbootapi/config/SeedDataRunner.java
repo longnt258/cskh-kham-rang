@@ -97,7 +97,14 @@ public class SeedDataRunner implements CommandLineRunner {
         Schedule schedule1 = new Schedule("Schedule 1", "Bi sau rang", DateUtil.getTimeWithDate(2024, 4, 10, 9, 0, 0), user2, dentist1);
         Schedule schedule2 = new Schedule("Schedule 2", "Bi sau rang", DateUtil.getTimeWithDate(2024, 4, 15, 16, 0, 0), user3, dentist5);
         Schedule schedule3 = new Schedule("Schedule 3", "Bi sau rang", DateUtil.getTimeWithDate(2024, 4, 20, 19, 0, 0), user1, dentist3);
-        scheduleRepository.saveAll(List.of(schedule1, schedule2, schedule3));
+        Schedule schedule4 = new Schedule("Schedule 4", "Bi sau rang", DateUtil.getTimeWithDate(2024, 4, 3, 19, 4, 0), user1, dentist3);
+        Schedule schedule5 = new Schedule("Schedule 4", "Bi sau rang", DateUtil.getTimeWithDate(2024, 4, 3, 19, 4, 0), user1, dentist3);
+        Schedule schedule6 = new Schedule("Schedule 4", "Bi sau rang", DateUtil.getTimeWithDate(2024, 4, 3, 19, 4, 0), user1, dentist3);
+        Schedule schedule7 = new Schedule("Schedule 4", "Bi sau rang", DateUtil.getTimeWithDate(2024, 4, 3, 19, 4, 0), user1, dentist3);
+        Schedule schedule8 = new Schedule("Schedule 4", "Bi sau rang", DateUtil.getTimeWithDate(2024, 4, 3, 19, 4, 0), user1, dentist3);
+        Schedule schedule9 = new Schedule("Schedule 4", "Bi sau rang", DateUtil.getTimeWithDate(2024, 4, 3, 19, 4, 0), user1, dentist3);
+        Schedule schedule10 = new Schedule("Schedule 4", "Bi sau rang", DateUtil.getTimeWithDate(2024, 4, 3, 19, 4, 0), user1, dentist3);
+        scheduleRepository.saveAll(List.of(schedule1, schedule2, schedule3,schedule4,schedule5,schedule6,schedule7,schedule8,schedule9,schedule10));
 
         // Set Schedule for User
         List<Schedule> schedules1 = new ArrayList(List.of(schedule1)); // User 1
