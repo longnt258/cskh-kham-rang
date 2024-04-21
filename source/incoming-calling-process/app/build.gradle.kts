@@ -42,4 +42,6 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     // https://mvnrepository.com/artifact/net.sourceforge.jtds/jtds
     implementation("net.sourceforge.jtds:jtds:1.3.1")
+    implementation ("com.android.volley:volley:1.2.1")
+    implementation("com.google.code.gson:gson:2.8.9")
 }

@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -24,16 +24,16 @@ public class CallingHistory {
     private String phoneNumber;
 
     @Column(name = "status")
-    private Boolean status;
+    private Boolean status; // true: complete, false: missing
 
     @Column(name = "description")
     private String description;
 
     @Column(name = "start_datetime")
-    private Timestamp startDatetime;
+    private Date startDatetime;
 
     @Column(name = "end_datetime")
-    private Timestamp endDatetime;
+    private Date endDatetime;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

@@ -35,11 +35,4 @@ public class DentistDTO {
             schedules.add(new ScheduleDTO(s, 2));
         });
     }
-
-    public DentistDTO(DentistRegisterDTO dentistRegisterDTO) throws ParseException {
-        fullName = dentistRegisterDTO.getFullName();
-        status = dentistRegisterDTO.getStatus() == 1 ? true : false;
-        startDateTime = DateUtil.convertString2Date(dentistRegisterDTO.getStartDatetime());
-        endDateTime = DateUtil.convertString2Date(dentistRegisterDTO.getEndDatetime());
-    }
 }

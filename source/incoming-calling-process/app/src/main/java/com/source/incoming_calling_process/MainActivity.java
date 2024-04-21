@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,15 +16,25 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.google.gson.Gson;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.Date;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     TextView txtNotif;
     Button btnRun;
-    Connection connection = null;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,32 +55,22 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickRunButton(View v) {
         boolean status = MyData.getInstance().getStatus();
-        if(!status) {
+        if (!status) {
             btnRun.setText("Stop");
             txtNotif.setText("");
-            connectSQLServer();
-        } else {
+            MyData.getInstance().setStatus();
+
+        } else { // save to db and remove list phone
             btnRun.setText("Start");
             StringBuilder phoneNumbers = new StringBuilder();
-            MyData.getInstance().getPhoneNumbers().forEach(phoneNumbers::append);
+            /* Hiển thị trên giao diện điện thoại lịch sử cuộc gọi sau khi off */
+            for (PhoneNumberDTO p : MyData.getInstance().getPhoneNumberList()) {
+                String endDate = p.getEndTime() != null ? Constants.convertDate2String(p.getEndTime()) : null;
+                String infoData = p.getPhoneNumber() + " - " + p.isStatus() + " - " + Constants.convertDate2String(p.getStartTime()) + " - " + endDate + "\n\r";
+                phoneNumbers.append(infoData);
+            }
             txtNotif.setText(phoneNumbers);
-        }
-        MyData.getInstance().setStatus();
-    }
-
-    public void connectSQLServer() {
-        try {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-            Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
-            Log.d("CONNECT STRING", "OK 111");
-            String connectStr = "jdbc:sqlserver://10.10.0.8;databaseName=cskh_kham_rang;integratedSecurity=true;";
-            Log.d("CONNECT STRING", connectStr);
-            connection = DriverManager.getConnection(connectStr);
-            txtNotif.setText("Successful connection");
-        } catch (Exception e) {
-            Log.e("ERROR_CONNECTION", Objects.requireNonNull(e.getMessage()));
-            txtNotif.setText("Failure connection");
+            MyData.getInstance().resetAll(); // reset all after save
         }
     }
 }
