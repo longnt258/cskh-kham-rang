@@ -22,8 +22,7 @@ public class DentistDTO {
     private String endDateTimeString;
     private List<ScheduleDTO> schedules = new ArrayList<>();
 
-    // Các input khi create hoặc update
-    // fullName, status, startDateTimeString, endDateTimeString
+    /* Các input khi create hoặc update: fullName, status, startDateTimeString, endDateTimeString */
 
     public DentistDTO(Dentist dentist) {
         this.dentistId = dentist.getDentistId();

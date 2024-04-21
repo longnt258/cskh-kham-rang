@@ -11,7 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CallingHistoryDTO {
     private String phoneNumber;
-    private boolean status; // true: complete, false: missing
+    /* xét trạng thái cuộc gọi (true: hoàn thành, false: gọi nhỡ) */
+    private boolean status;
     private String description;
     private String startDate;
     private String endDate;
@@ -22,6 +23,7 @@ public class CallingHistoryDTO {
         status = callingHistory.getStatus();
         description = callingHistory.getDescription();
         startDate = DateUtil.convertDate2String(callingHistory.getStartDatetime());
+        /* Kiểm tra endDate có null ko để tránh bị lỗi khi convert */
         endDate = callingHistory.getEndDatetime() != null ? DateUtil.convertDate2String(callingHistory.getEndDatetime()) : null;
         userFullName = callingHistory.getUser() != null ? callingHistory.getUser().getFullName() : "Unknown";
     }

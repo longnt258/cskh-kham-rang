@@ -13,6 +13,4 @@ public interface DentistService {
     DentistDTO createByAdmin(DentistDTO dentistDTO);
 
     DentistDTO update(Integer dentistId, DentistDTO dentistDTO);
-
-//    DentistDTO delete(Integer dentistId);
 }

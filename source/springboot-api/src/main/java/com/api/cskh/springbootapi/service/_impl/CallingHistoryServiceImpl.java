@@ -11,7 +11,6 @@ import com.api.cskh.springbootapi.service.CallingHistoryService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -42,7 +41,7 @@ public class CallingHistoryServiceImpl implements CallingHistoryService {
     public CallingHistoryDTO create(CallingHistoryDTO callingHistoryDTO) {
         LogUtil.logger.info("Create new CallingHistory");
         try {
-            // check phone number
+            /* Kiểm tra PhoneNumber đã có User chưa để cập nhật User cho lịch sử cuộc gọi */
             User user = userRepository.findByPhoneNumber(callingHistoryDTO.getPhoneNumber());
             Date endDate = callingHistoryDTO.getEndDate() != null ? DateUtil.convertString2Date(callingHistoryDTO.getEndDate()) : null;
 
@@ -69,6 +68,7 @@ public class CallingHistoryServiceImpl implements CallingHistoryService {
             return;
         }
 
+        /* Cập nhật lại lịch sử cuộc gọi với User đã được tạo */
         List<CallingHistory> callingHistories = callingHistoryRepository.findCallingHistoriesByPhoneNumber(phoneNumber);
         for(CallingHistory c : callingHistories) {
             c.setUser(user);

@@ -4,7 +4,6 @@ import com.api.cskh.springbootapi.common.utils.DateUtil;
 import com.api.cskh.springbootapi.common.utils.LogUtil;
 import com.api.cskh.springbootapi.domain.Schedule;
 import com.api.cskh.springbootapi.dto.ScheduleDTO;
-import com.api.cskh.springbootapi.dto.UserDTO;
 import com.api.cskh.springbootapi.repository.DentistRepository;
 import com.api.cskh.springbootapi.repository.ScheduleRepository;
 import com.api.cskh.springbootapi.repository.UserRepository;
@@ -88,6 +87,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         LogUtil.logger.info("Update Schedule by code: " + scheduleCode);
         try {
             Schedule schedule = scheduleRepository.findScheduleByCode(scheduleCode);
+            /* Kiểm tra thông tin tránh bị null */
             if(inputScheduleUpdate.getTitle() != null) {
                 schedule.setTitle(inputScheduleUpdate.getTitle());
             }

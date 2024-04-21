@@ -18,6 +18,7 @@ public class ScheduleDTO {
     private Integer userId;
     private Integer dentistId;
 
+    /* Phân loại cho user được quyền xem */
     // watcher: 0 --> admin, 1 --> user, 2 --> dentist
     public ScheduleDTO(Schedule schedule, int watcher) {
         code = schedule.getCode();
