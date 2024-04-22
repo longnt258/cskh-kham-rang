@@ -35,7 +35,6 @@ public class HomeRvDentistAdapter extends RecyclerView.Adapter<HomeRvDentistAdap
         String status = dentistList.get(position).isStatus() ? "Ready" : "Not Ready";
         String startDate = dentistList.get(position).getStartDateTime() != null? simpleDateFormat.format(dentistList.get(position).getStartDateTime()) : "";
         String endDate = dentistList.get(position).getEndDateTime() != null? simpleDateFormat.format(dentistList.get(position).getEndDateTime()) : "";
-
         holder.tvItemDateStart.setText(String.format("Start date: %s", startDate.replace("T"," ")));
         holder.tvItemDateEnd.setText(String.format("End date: %s", endDate.replace("T"," ")));
         holder.tvItemName.setText(fullName);
