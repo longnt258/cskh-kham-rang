@@ -38,3 +38,4 @@ D:\Work\cskh-kham-rang\source\manager-application\obj\Debug\manager_application.
 D:\Work\cskh-kham-rang\source\manager-application\obj\Debug\manager_application.UserControlls.SchedulePanel.resources
 D:\Work\cskh-kham-rang\source\manager-application\obj\Debug\manager_application.UserControlls.SettingPanel.resources
 D:\Work\cskh-kham-rang\source\manager-application\obj\Debug\manager_application.AddScheduleFrm.resources
+D:\Work\cskh-kham-rang\source\manager-application\obj\Debug\manager_application.AddOrUpdateDentist.resources

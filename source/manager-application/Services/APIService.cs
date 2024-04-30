@@ -10,8 +10,8 @@ namespace manager_application.Services
     internal class APIService
     {
         private static HttpClient _httpClient;
-        public static APIService instance = GetInstance();
-        public APIService()
+        private static APIService instance = GetInstance();
+        private APIService()
         {
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = new Uri("http://localhost:8080/api/v1/");

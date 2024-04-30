@@ -63,31 +63,20 @@ namespace manager_application.UserControlls
                 // Create a ContextMenu
                 ContextMenu m = new ContextMenu();
 
-                // Add a MenuItem to the ContextMenu
-                MenuItem menuItemShowSchedules = new MenuItem("Show Schedules");
-                menuItemShowSchedules.Click += MenuItemShowSchedules_Click;
-                m.MenuItems.Add(menuItemShowSchedules);
-
+                MenuItem menuItemEditDentist = new MenuItem("Edit");
+                menuItemEditDentist.Click += MenuItemOpenEditorDentist_Click;
+                m.MenuItems.Add(menuItemEditDentist);
                 // Show the ContextMenu at the location of the mouse click
                 m.Show(dataGridView1, dataGridView1.PointToClient(Cursor.Position));
             }
         }
 
-
-        private void MenuItemShowSchedules_Click(object sender, EventArgs e)
+        private void MenuItemOpenEditorDentist_Click(object sender, EventArgs e)
         {
             // Get the selected row
-            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-
-            // Retrieve relevant data from the selected row
-            // Assuming the relevant data is stored in specific columns of the DataGridView
-            string scheduleData = selectedRow.Cells["colName"].Value.ToString(); // Replace "ColumnName" with the actual column name
-
-            //// Open another form passing the relevant data
-            //// Assuming you have another form named ScheduleForm to display the schedule data
-            MessageBox.Show(scheduleData);
-            //ScheduleForm scheduleForm = new ScheduleForm(scheduleData);
-            //scheduleForm.Show();
+            int selectedRow = dataGridView1.CurrentCell.RowIndex;
+            Dentist dentist = dentistList[selectedRow];
+            new AddOrUpdateDentist(dentist).ShowDialog();
         }
 
         private void SeachBtn_Click(object sender, EventArgs e)
@@ -109,12 +98,7 @@ namespace manager_application.UserControlls
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void BtnDelete_Click(object sender, EventArgs e)
-        {
-            
+            new AddOrUpdateDentist().ShowDialog();
         }
     }
 }

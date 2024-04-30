@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace manager_application.models
 {
-    internal class Admin
+    public class Admin
     {
         
         public int Id { get; set; }

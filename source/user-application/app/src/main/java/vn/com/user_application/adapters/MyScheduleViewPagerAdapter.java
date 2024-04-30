@@ -11,10 +11,12 @@ public class MyScheduleViewPagerAdapter extends FragmentStateAdapter {
 
     private final Fragment[] list;
     private final String[] listName = { "SẮP TỚI", "LỊCH SỬ"};
+
     public MyScheduleViewPagerAdapter(@NonNull Fragment fragment, Fragment[] list) {
         super(fragment);
         this.list = list;
     }
+
 
     @NonNull
     @Override

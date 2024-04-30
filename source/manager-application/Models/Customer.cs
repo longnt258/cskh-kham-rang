@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace manager_application.models
 {
-    internal class Customer
+    public class Customer
     {
         [JsonProperty(PropertyName = "userId")]
         public int Id { get; set; }
