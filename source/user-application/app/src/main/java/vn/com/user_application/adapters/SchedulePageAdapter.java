@@ -1,5 +1,7 @@
 package vn.com.user_application.adapters;
 
+import static vn.com.user_application.Application.getSimpleDateFormat;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 import vn.com.user_application.R;
@@ -16,7 +20,7 @@ import vn.com.user_application.core.models.Schedule;
 
 public class SchedulePageAdapter extends RecyclerView.Adapter<SchedulePageAdapter.ViewHolder> {
 
-    private List<Schedule> scheduleList;
+    private final List<Schedule> scheduleList;
 
     public SchedulePageAdapter(List<Schedule> scheduleList){
         this.scheduleList = scheduleList;
@@ -42,6 +46,16 @@ public class SchedulePageAdapter extends RecyclerView.Adapter<SchedulePageAdapte
         holder.tvBookingDate.setText(bookDate);
         holder.tvBookingTime.setText(bookTime);
         holder.tvTitle.setText(title);
+
+        Date date = null;
+        try {
+            date = getSimpleDateFormat().parse(schedule.getBookingDatetime());
+            if(date.before(new Date()))
+                holder.btnCancel.setVisibility(View.INVISIBLE);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     @Override

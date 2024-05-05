@@ -11,7 +11,7 @@ namespace manager_application.Services
 {
     internal class CustomerService
     {
-        private readonly HttpClient _client = APIService.instance.GetHttpClient();
+        private readonly HttpClient _client = APIService.GetInstance().GetHttpClient();
         private HttpResponseMessage _response;
 
         public async Task<Response<List<Customer>>> GetAllCustomer()

@@ -1,5 +1,7 @@
 package vn.com.user_application.screens.fragments.my_schedules_components;
 
+import static vn.com.user_application.Application.getSimpleDateFormat;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,10 +10,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -79,9 +83,15 @@ public class InComingFragment extends Fragment {
                     if(response.body() != null && response.body().getStatus() == 1){
                         scheduleList.clear();
                         for(Schedule schedule : response.body().getData()){
-                            Date date = new Date(schedule.getBookingDatetime());
-                            if(date.before(new Date()))
-                                scheduleList.add(schedule);
+                            Date date = null;
+                            try {
+                                date = getSimpleDateFormat().parse(schedule.getBookingDatetime());
+                                if(date.after(new Date()))
+                                    scheduleList.add(schedule);
+                                Log.e("Date Before", date.toString());
+                            } catch (ParseException e) {
+                                throw new RuntimeException(e);
+                            }
                         }
                         adapter.notifyDataSetChanged();
                     }

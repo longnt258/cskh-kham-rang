@@ -75,7 +75,6 @@ namespace manager_application
                 tbPhoneNumber.Text = cus.PhoneNumber;
                 tbCusEmail.Text = cus.Email;
                 tbCusFullName.Text = cus.FullName;
-
             }
         }
 
@@ -86,8 +85,8 @@ namespace manager_application
 
         private async void btnOk_Click(object sender, EventArgs e)
         {
-            string selectedDate = DateTimePickerBookDate.Value.Date.ToString("MM/dd/yyyy");
-            string selectedTime = TimePickerBookTime.Value.Date.ToString("HH:mm:ss");
+            string selectedDate = DateTimePickerBookDate.Value.Date.ToString("dd/MM/yyyy");
+            string selectedTime = TimePickerBookTime.Value.ToString("HH:mm:ss");
             string dateTimeSelected = $"{selectedDate} {selectedTime}";
             string description = tbDes.Text;
             string title = rtbTitle.Text;

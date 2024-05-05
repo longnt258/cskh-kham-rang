@@ -11,7 +11,7 @@ namespace manager_application.Services
 {
     internal class ScheduleService
     {
-        private readonly HttpClient _client = APIService.instance.GetHttpClient();
+        private readonly HttpClient _client = APIService.GetInstance().GetHttpClient();
         private HttpResponseMessage _response;
 
         public async Task<Response<List<Schedule>>> GetAllSchedules()

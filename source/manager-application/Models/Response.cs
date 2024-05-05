@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace manager_application.Models
 {
-    internal class Response<T>
+    public class Response<T>
     {
         [JsonProperty(PropertyName = "data")]
         public T data { get; set; }

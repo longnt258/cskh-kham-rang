@@ -19,7 +19,7 @@ public class Application extends android.app.Application {
 
     public static synchronized SimpleDateFormat getSimpleDateFormat() {
         if (simpleDateFormat == null) {
-            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm:ss", Locale.getDefault());
+            simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault());
         }
         return simpleDateFormat;
     }

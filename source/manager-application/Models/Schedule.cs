@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace manager_application.models
 {
-    internal class Schedule
+    public class Schedule
     {
         [JsonProperty(PropertyName = "code")]
         public string Code { get; set; }

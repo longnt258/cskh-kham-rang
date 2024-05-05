@@ -103,7 +103,7 @@ public class SeedDataRunner implements CommandLineRunner {
         Schedule schedule7 = new Schedule("Schedule 4", "Bi sau rang", DateUtil.getTimeWithDate(2024, 4, 3, 19, 4, 0), user1, dentist3);
         Schedule schedule8 = new Schedule("Schedule 4", "Bi sau rang", DateUtil.getTimeWithDate(2024, 4, 3, 19, 4, 0), user1, dentist3);
         Schedule schedule9 = new Schedule("Schedule 4", "Bi sau rang", DateUtil.getTimeWithDate(2024, 4, 3, 19, 4, 0), user1, dentist3);
-        Schedule schedule10 = new Schedule("Schedule 4", "Bi sau rang", DateUtil.getTimeWithDate(2024, 4, 3, 19, 4, 0), user1, dentist3);
+        Schedule schedule10 = new Schedule("Schedule 4", "Bi sau rang", DateUtil.getTimeWithDate(2024, 5, 3, 19, 4, 0), user1, dentist3);
         scheduleRepository.saveAll(List.of(schedule1, schedule2, schedule3,schedule4,schedule5,schedule6,schedule7,schedule8,schedule9,schedule10));
 
         // Set Schedule for User

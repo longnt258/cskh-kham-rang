@@ -87,6 +87,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddOrUpdateDentist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOrUpdateDentist.Designer.cs">
+      <DependentUpon>AddOrUpdateDentist.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddScheduleFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,7 @@
     <Compile Include="Services\APIService.cs" />
     <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\DentistService.cs" />
+    <Compile Include="Services\HistoryCallService.cs" />
     <Compile Include="Services\ScheduleService.cs" />
     <Compile Include="SignUpFrm.cs">
       <SubType>Form</SubType>
@@ -156,6 +163,9 @@
     <Compile Include="UserControlls\SettingPanel.Designer.cs">
       <DependentUpon>SettingPanel.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddOrUpdateDentist.resx">
+      <DependentUpon>AddOrUpdateDentist.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddScheduleFrm.resx">
       <DependentUpon>AddScheduleFrm.cs</DependentUpon>
     </EmbeddedResource>

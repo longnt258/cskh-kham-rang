@@ -11,7 +11,7 @@ namespace manager_application.Services
 {
     internal class AuthServices
     {
-        private readonly HttpClient _client = APIService.instance.GetHttpClient();
+        private readonly HttpClient _client = APIService.GetInstance().GetHttpClient();
         private HttpResponseMessage _response;
 
         public async Task<Response<Admin>> Login(string username, string password)

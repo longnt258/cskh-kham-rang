@@ -47,6 +47,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tbCusEmail = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@
             this.tbPhoneNumber = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -192,7 +192,7 @@
             // 
             // DateTimePickerBookDate
             // 
-            this.DateTimePickerBookDate.CustomFormat = "MM/dd/yyyy ";
+            this.DateTimePickerBookDate.CustomFormat = "dd/MM/yyyy";
             this.DateTimePickerBookDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateTimePickerBookDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateTimePickerBookDate.Location = new System.Drawing.Point(86, 13);
@@ -275,6 +275,15 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(689, 137);
             this.panel2.TabIndex = 2;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(503, 88);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(177, 39);
+            this.label13.TabIndex = 15;
+            this.label13.Text = "* Note :\r\nUsername mặt định là số điện thoại \r\nPassword mặc định là 123456";
             // 
             // button1
             // 
@@ -369,15 +378,6 @@
             this.label2.Size = new System.Drawing.Size(201, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Thông tin khách hàng";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(503, 88);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(177, 39);
-            this.label13.TabIndex = 15;
-            this.label13.Text = "* Note :\r\nUsername mặt định là số điện thoại \r\nPassword mặc định là 123456";
             // 
             // AddScheduleFrm
             // 

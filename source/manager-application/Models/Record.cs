@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace manager_application.models
 {
-    internal class Record
+    public class Record
     {
     }
 }
