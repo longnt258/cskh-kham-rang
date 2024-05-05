@@ -38,6 +38,14 @@ public class CallingHistoryServiceImpl implements CallingHistoryService {
     }
 
     @Override
+    public List<CallingHistoryDTO> findByUserId(Integer userId) {
+        LogUtil.logger.info("Find CallingHistories by user id");
+        return callingHistoryRepository.findCallingHistoriesByUserUserId(userId)
+                .stream().map(CallingHistoryDTO::new)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public CallingHistoryDTO create(CallingHistoryDTO callingHistoryDTO) {
         LogUtil.logger.info("Create new CallingHistory");
         try {

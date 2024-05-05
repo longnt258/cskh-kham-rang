@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             txtNotif.setText("");
             MyData.getInstance().setStatus();
 
-        } else { // save to db and remove list phone
+        } else {
             btnRun.setText("Start");
             StringBuilder phoneNumbers = new StringBuilder();
             /* Hiển thị trên giao diện điện thoại lịch sử cuộc gọi sau khi off */
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 phoneNumbers.append(infoData);
             }
             txtNotif.setText(phoneNumbers);
-            MyData.getInstance().resetAll(); // reset all after save
+            MyData.getInstance().resetAll(); // reset toàn bộ sau khi save
         }
     }
 }

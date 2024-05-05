@@ -39,11 +39,6 @@ public class DentistController {
                 message = Constants.IS_EMPTY("Start datetime");
                 status = 0;
             }
-//            else if(dentistDTO.getEndDateTimeString() == null || Objects.equals(dentistDTO.getEndDateTimeString(), "")) {
-//                message = Constants.IS_EMPTY("End datetime");
-//                status = 0;
-//            }
-
             // no booking datetime checked
             if(status == 1) {
                 dentistDTO.setStartDateTime(DateUtil.convertString2Date(dentistDTO.getStartDateTimeString()));

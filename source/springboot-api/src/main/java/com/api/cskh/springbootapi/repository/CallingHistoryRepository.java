@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface CallingHistoryRepository extends JpaRepository<CallingHistory, Integer> {
     List<CallingHistory> findCallingHistoriesByPhoneNumber(String phoneNumber);
+
+    List<CallingHistory> findCallingHistoriesByUserUserId(Integer userId);
 }

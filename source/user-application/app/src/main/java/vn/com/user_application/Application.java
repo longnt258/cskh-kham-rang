@@ -13,7 +13,8 @@ public class Application extends android.app.Application {
 
     private static SimpleDateFormat simpleDateFormat;
     public static final Fragment[] scheduleFragmentList = {new InComingFragment(),new HistoryFragment()};
-    public static final String ipHost = "192.168.1.2";
+//    public static final String ipHost = "192.168.1.2";
+    public static final String ipHost = "10.10.0.61";
     public static User currentUser;
 
     public static synchronized SimpleDateFormat getSimpleDateFormat() {

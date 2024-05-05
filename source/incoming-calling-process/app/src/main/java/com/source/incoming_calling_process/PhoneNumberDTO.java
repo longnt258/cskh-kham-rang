@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class PhoneNumberDTO {
     private String phoneNumber;
-    private boolean status; // false: miss calling, true: ok
+    private boolean status; // false: cuộc gọi nhỡ, true: ok
     private Date startTime;
     private Date endTime;
     private int callingSeconds; // endTime - startTime
@@ -12,13 +12,13 @@ public class PhoneNumberDTO {
     public PhoneNumberDTO() {
     }
 
-    public PhoneNumberDTO(String phoneNumber, boolean status, Date startTime, Date endTime, int callingSeconds) {
-        this.phoneNumber = phoneNumber;
-        this.status = status;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.callingSeconds = callingSeconds;
-    }
+//    public PhoneNumberDTO(String phoneNumber, boolean status, Date startTime, Date endTime, int callingSeconds) {
+//        this.phoneNumber = phoneNumber;
+//        this.status = status;
+//        this.startTime = startTime;
+//        this.endTime = endTime;
+//        this.callingSeconds = callingSeconds;
+//    }
 
     public String getPhoneNumber() {
         return phoneNumber;
