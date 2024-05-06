@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyData {
-    private static MyData INSTANCE = new MyData();
-    private boolean status = false;
-    private boolean flag = false;
-    private List<String> phoneNumbers = new ArrayList();
+    private static final MyData INSTANCE = new MyData();
+    private boolean status = false; // True: Bật, False: Tắt (khi start bắt cuộc gọi tới)
+    private boolean flag = false; // Biến cờ để xác định cuộc gọi đã kết thúc hay chưa (trong file IncomingCallingProcess đã giải thích)
     private PhoneNumberDTO tempPhoneNumber = new PhoneNumberDTO();
     private List<PhoneNumberDTO> phoneNumberList = new ArrayList<>();
     private MyData() {
@@ -24,14 +23,8 @@ public class MyData {
     public void setStatus() {
         this.status = !status;
     }
-    public void addPhoneNumber(String phoneNumber) {
-        this.phoneNumbers.add(phoneNumber + " ");
-    }
     public void addPhoneNumber(PhoneNumberDTO phoneNumberDTO) {
         this.phoneNumberList.add(phoneNumberDTO);
-    }
-    public List<String> getPhoneNumbers() {
-        return this.phoneNumbers;
     }
     public List<PhoneNumberDTO> getPhoneNumberList() {
         return phoneNumberList;

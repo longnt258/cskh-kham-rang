@@ -21,6 +21,11 @@ public class CallingHistoryController {
         return ResponseEntity.ok(new ResponseDTO<>(callingHistoryService.findAll(),"OK", 1));
     }
 
+    @GetMapping("/find/{userId}")
+    public ResponseEntity<ResponseDTO<List<CallingHistoryDTO>>> findByUserId(@PathVariable Integer userId) {
+        return ResponseEntity.ok(new ResponseDTO<>(callingHistoryService.findByUserId(userId),"OK", 1));
+    }
+
     @PostMapping("/create")
     public ResponseEntity<ResponseDTO<CallingHistoryDTO>> create(@RequestBody CallingHistoryDTO callingHistoryDTO) {
         ResponseDTO<CallingHistoryDTO> response;

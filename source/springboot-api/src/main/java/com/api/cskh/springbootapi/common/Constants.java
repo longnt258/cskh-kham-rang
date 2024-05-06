@@ -1,11 +1,13 @@
 package com.api.cskh.springbootapi.common;
 
 public class Constants {
-    // NOTIFICATION
+    // NOTIFICATION CONSTANTS
     public static String OK = "OK";
     public static String FAILURE_REGISTER = "Failure register!";
     public static String REGISTER_ERROR = "Error while register!";
     public static String FAILURE_UPDATE = "Failure update!";
+
+    // FUNCTION RETURN NOTIFICATION
     public static String IS_EMPTY(String o) {
         return o + " is empty!";
     }

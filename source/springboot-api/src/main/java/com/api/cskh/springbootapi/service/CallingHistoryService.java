@@ -9,6 +9,8 @@ public interface CallingHistoryService {
 
     List<CallingHistoryDTO> findByPhoneNumber(String phoneNumber);
 
+    List<CallingHistoryDTO> findByUserId(Integer userId);
+
     CallingHistoryDTO create(CallingHistoryDTO callingHistoryDTO);
 
     void updateUser(String phoneNumber);
