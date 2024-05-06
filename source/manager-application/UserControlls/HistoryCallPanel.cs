@@ -39,8 +39,9 @@ namespace manager_application.UserControlls
                         ch.Status? "Complete" : "Missing",
                         ch.Description,
                         ch.StartDate,
-                        ch.EndDate,
-                        ch.UserFullName
+                        ch.EndDate != null ? ch.EndDate: "",
+                        ch.UserFullName,
+                        ch.PhoneNumber
                     });
                 }
             }

@@ -39,6 +39,7 @@
             this.colStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -105,7 +106,8 @@
             this.colDes,
             this.colStartDate,
             this.colEndDate,
-            this.colUser});
+            this.colUser,
+            this.colSDT});
             this.dataGridView1.Location = new System.Drawing.Point(3, 253);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -154,6 +156,12 @@
             this.colUser.Name = "colUser";
             this.colUser.ReadOnly = true;
             // 
+            // colSDT
+            // 
+            this.colSDT.HeaderText = "Số điện thoại";
+            this.colSDT.Name = "colSDT";
+            this.colSDT.ReadOnly = true;
+            // 
             // HistoryCallPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,5 +192,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colEndDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUser;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSDT;
     }
 }
