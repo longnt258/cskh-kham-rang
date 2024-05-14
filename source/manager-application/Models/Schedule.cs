@@ -27,5 +27,17 @@ namespace manager_application.models
         public int UserId { get; set; }
         [JsonProperty(PropertyName = "dentistId",NullValueHandling = NullValueHandling.Ignore)]
         public int DentistId { get; set; }
+
+        public override string ToString()
+        {
+            var userIdText = UserId != 0 ? UserId.ToString() : "N/A";
+            var dentistIdText = DentistId != 0 ? DentistId.ToString() : "N/A";
+
+            return $"Schedule: {{ Code: {Code}, Title: {Title}, Description: {Description}, " +
+                   $"Booking DateTime: {BookDateTime}, Dentist Name: {DentistName}, " +
+                   $"User Full Name: {UserFullName}, Status: {Status}, User ID: {userIdText}, " +
+                   $"Dentist ID: {dentistIdText} }}";
+        }
+
     }
 }

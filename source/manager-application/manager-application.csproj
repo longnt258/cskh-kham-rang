@@ -87,28 +87,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddOrUpdateDentist.cs">
+    <Compile Include="Presentations\AddOrUpdateDentist.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddOrUpdateDentist.Designer.cs">
+    <Compile Include="Presentations\AddOrUpdateDentist.Designer.cs">
       <DependentUpon>AddOrUpdateDentist.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddScheduleFrm.cs">
+    <Compile Include="Presentations\AddScheduleFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddScheduleFrm.Designer.cs">
+    <Compile Include="Presentations\AddScheduleFrm.Designer.cs">
       <DependentUpon>AddScheduleFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DashboardFrm.cs">
+    <Compile Include="Presentations\DashboardFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DashboardFrm.Designer.cs">
+    <Compile Include="Presentations\DashboardFrm.Designer.cs">
       <DependentUpon>DashboardFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginFrm.cs">
+    <Compile Include="Presentations\LoginFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Presentations\Form1.Designer.cs">
       <DependentUpon>LoginFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Admin.cs" />
@@ -127,10 +127,10 @@
     <Compile Include="Services\DentistService.cs" />
     <Compile Include="Services\HistoryCallService.cs" />
     <Compile Include="Services\ScheduleService.cs" />
-    <Compile Include="SignUpFrm.cs">
+    <Compile Include="Presentations\SignUpFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SignUpFrm.Designer.cs">
+    <Compile Include="Presentations\SignUpFrm.Designer.cs">
       <DependentUpon>SignUpFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlls\CustomerPanel.cs">
@@ -163,16 +163,16 @@
     <Compile Include="UserControlls\SettingPanel.Designer.cs">
       <DependentUpon>SettingPanel.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddOrUpdateDentist.resx">
+    <EmbeddedResource Include="Presentations\AddOrUpdateDentist.resx">
       <DependentUpon>AddOrUpdateDentist.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddScheduleFrm.resx">
+    <EmbeddedResource Include="Presentations\AddScheduleFrm.resx">
       <DependentUpon>AddScheduleFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DashboardFrm.resx">
+    <EmbeddedResource Include="Presentations\DashboardFrm.resx">
       <DependentUpon>DashboardFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginFrm.resx">
+    <EmbeddedResource Include="Presentations\LoginFrm.resx">
       <DependentUpon>LoginFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -185,7 +185,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SignUpFrm.resx">
+    <EmbeddedResource Include="Presentations\SignUpFrm.resx">
       <DependentUpon>SignUpFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlls\CustomerPanel.resx">

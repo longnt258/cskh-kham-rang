@@ -57,7 +57,7 @@ public class HomeFragment extends Fragment {
                     Toast.makeText(requireActivity(), "This function is not available due to permission denied", Toast.LENGTH_SHORT).show();
                 }
             });
-    private CardView cardViewContactSP;
+    private CardView cardViewContactSP,cardViewBooking;
     private TextView tvViewAllDoctor,tvCustomerName;
     private final List<Dentist> dentistList = new ArrayList<>();
     HomeRvDentistAdapter adapter = new HomeRvDentistAdapter(dentistList, Application.getSimpleDateFormat());
@@ -130,6 +130,12 @@ public class HomeFragment extends Fragment {
                         Manifest.permission.CALL_PHONE);
             }
         });
+        cardViewBooking.setOnClickListener(v -> requireActivity()
+                .getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container_view, new BookingFragment())
+                .addToBackStack(null)
+                .commit());
     }
 
     private void showInContextUI() {
@@ -153,6 +159,7 @@ public class HomeFragment extends Fragment {
     private void initView(View view) {
         // Mapping with View
         cardViewContactSP = view.findViewById(R.id.cvContactSP);
+        cardViewBooking = view.findViewById(R.id.cardViewBooking);
         tvCustomerName = view.findViewById(R.id.tvCustomerName);
         tvCustomerName.setText(Application.currentUser.getFullName());
         RecyclerView dentistsRv = view.findViewById(R.id.rvDoctors);

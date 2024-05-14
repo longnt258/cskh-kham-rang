@@ -117,7 +117,7 @@
             // colPhoneNumber
             // 
             this.colPhoneNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPhoneNumber.HeaderText = "Số điện thoại";
+            this.colPhoneNumber.HeaderText = "Số thứ tự";
             this.colPhoneNumber.Name = "colPhoneNumber";
             this.colPhoneNumber.ReadOnly = true;
             // 
@@ -185,13 +185,13 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPhoneNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDes;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStartDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEndDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUser;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSDT;
     }
 }

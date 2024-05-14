@@ -73,6 +73,35 @@ public class ScheduleController {
         return ResponseEntity.ok(response);
     }
 
+    @PostMapping("/create-by-user")
+    public ResponseEntity<ResponseDTO<ScheduleDTO>> createByUser(@RequestBody ScheduleDTO scheduleDTO) {
+        ResponseDTO<ScheduleDTO> response;
+        ScheduleDTO scheduleDTOResponse = null;
+        try {
+            String message = Constants.OK;
+            int status = 1;
+            if(scheduleDTO.getTitle() == null || Objects.equals(scheduleDTO.getTitle(), "")) {
+                message = Constants.IS_EMPTY("Title");
+                status = 0;
+            } else if(scheduleDTO.getBookingDatetime() == null || Objects.equals(scheduleDTO.getBookingDatetime(), "")) {
+                message = Constants.IS_EMPTY("Booking datetime");
+                status = 0;
+            }
+            // no booking datetime checked
+            if(status == 1) {
+                scheduleDTOResponse = scheduleService.bookingByUser(scheduleDTO);
+                if(scheduleDTOResponse == null) {
+                    message = Constants.FAILURE_REGISTER;
+                    status = 0;
+                }
+            }
+            response = new ResponseDTO<>(scheduleDTOResponse, message, status);
+        } catch (Exception e) {
+            response = new ResponseDTO<>(null, Constants.REGISTER_ERROR, 0);
+        }
+        return ResponseEntity.ok(response);
+    }
+
     @PostMapping("/update")
     public ResponseEntity<ResponseDTO<ScheduleDTO>> update(@RequestParam String scheduleCode, @RequestBody ScheduleDTO scheduleDTO) {
         ResponseDTO<ScheduleDTO> response;

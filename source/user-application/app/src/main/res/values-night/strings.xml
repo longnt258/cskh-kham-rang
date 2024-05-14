@@ -27,4 +27,6 @@
     <string name="in_comming">In-comming</string>
     <string name="history">History</string>
     <string name="l_ch_c_a_t_i">Lịch của tôi</string>
+    <string name="booking">Booking</string>
+    <string name="ch_n_ng_y_gi_amp_ch_n_b_c_s"><![CDATA[Chọn ngày giờ & chọn bác sĩ]]></string>
 </resources>

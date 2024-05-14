@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:id="@+id/bottomNavigationBar"
         app:menu="@menu/bottom_navigation_bar_menu"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

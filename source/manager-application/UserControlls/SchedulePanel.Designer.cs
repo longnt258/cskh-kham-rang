@@ -45,6 +45,7 @@
             this.colBookingDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDentistName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCustomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -155,7 +156,8 @@
             this.colDescription,
             this.colBookingDateTime,
             this.colDentistName,
-            this.colCustomer});
+            this.colCustomer,
+            this.colStatus});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -174,6 +176,7 @@
             this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView1.Size = new System.Drawing.Size(1036, 371);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridView1_CellMouseClick);
             // 
             // colSTT
             // 
@@ -218,6 +221,12 @@
             this.colCustomer.Name = "colCustomer";
             this.colCustomer.ReadOnly = true;
             // 
+            // colStatus
+            // 
+            this.colStatus.HeaderText = "Trạng thái";
+            this.colStatus.Name = "colStatus";
+            this.colStatus.ReadOnly = true;
+            // 
             // SchedulePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,5 +262,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colBookingDateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDentistName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCustomer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
     }
 }

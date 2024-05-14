@@ -175,6 +175,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvService">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewBooking"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:cardCornerRadius="20dp"
@@ -196,7 +197,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:text="@string/schedule"
+                        android:text="@string/booking"
                         android:textStyle="bold"
                         android:textColor="@color/black"/>
 

@@ -43,4 +43,7 @@ public interface ApiService {
     @GET("schedule/user")
     Call<Response<List<Schedule>>> getUserSchedule(@Query("userId") int id);
 
+    @POST("schedule/create-by-user")
+    Call<Response<Schedule>> bookingSchedule(@Body Schedule schedule);
+
 }

@@ -10,6 +10,9 @@ public class Schedule {
     private int status;
     private String dentistName;
     private String userFullName;
+    private int userId;
+
+    public Schedule(){}
 
     public Schedule(String code, String title, String description, String bookingDatetime, int status, String dentistName, String userFullName) {
         this.code = code;
@@ -19,6 +22,14 @@ public class Schedule {
         this.status = status;
         this.dentistName = dentistName;
         this.userFullName = userFullName;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getCode() {

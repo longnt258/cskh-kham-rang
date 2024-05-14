@@ -26,7 +26,7 @@ public class ScheduleDTO {
         description = schedule.getDescription();
         status = schedule.getStatus();
         bookingDatetime = DateUtil.convertDate2String(schedule.getBookingDatetime());
-        if(watcher == 0) {
+        if (watcher == 0) {
             dentistName = schedule.getDentist() != null ? schedule.getDentist().getFullName() : "";
             userFullName = schedule.getUser() != null ? schedule.getUser().getFullName() : "";
         } else if (watcher == 1) {
@@ -35,4 +35,17 @@ public class ScheduleDTO {
             userFullName = schedule.getUser() != null ? schedule.getUser().getFullName() : "";
         }
     }
+
+    public ScheduleDTO(Schedule schedule) {
+        code = schedule.getCode();
+        title = schedule.getTitle();
+        description = schedule.getDescription();
+        status = schedule.getStatus();
+        bookingDatetime = DateUtil.convertDate2String(schedule.getBookingDatetime());
+        dentistName = schedule.getDentist() != null ? schedule.getDentist().getFullName() : "";
+        userFullName = schedule.getUser() != null ? schedule.getUser().getFullName() : "";
+        dentistId = schedule.getDentist().getDentistId();
+        userId = schedule.getUser().getUserId();
+    }
+
 }

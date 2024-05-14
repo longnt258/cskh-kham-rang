@@ -15,5 +15,7 @@ public interface ScheduleService {
 
     ScheduleDTO createByAdmin(ScheduleDTO scheduleDTO);
 
+    ScheduleDTO bookingByUser(ScheduleDTO scheduleDTO);
+
     ScheduleDTO update(String scheduleCode, ScheduleDTO inputScheduleUpdate);
 }

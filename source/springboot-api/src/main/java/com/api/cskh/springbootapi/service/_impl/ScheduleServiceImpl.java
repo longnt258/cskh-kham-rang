@@ -2,6 +2,7 @@ package com.api.cskh.springbootapi.service._impl;
 
 import com.api.cskh.springbootapi.common.utils.DateUtil;
 import com.api.cskh.springbootapi.common.utils.LogUtil;
+import com.api.cskh.springbootapi.domain.Dentist;
 import com.api.cskh.springbootapi.domain.Schedule;
 import com.api.cskh.springbootapi.dto.ScheduleDTO;
 import com.api.cskh.springbootapi.repository.DentistRepository;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
@@ -26,7 +28,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         LogUtil.logger.info("Find all Schedule");
         List<ScheduleDTO> scheduleResultList = new LinkedList<>();
         scheduleRepository.findAll().forEach(s -> {
-            scheduleResultList.add(new ScheduleDTO(s, 0));
+            scheduleResultList.add(new ScheduleDTO(s));
         });
 
         return scheduleResultList;
@@ -75,6 +77,23 @@ public class ScheduleServiceImpl implements ScheduleService {
                     DateUtil.convertString2Date(scheduleDTO.getBookingDatetime()),
                     userRepository.findUserByUserId(scheduleDTO.getUserId()),
                     dentistRepository.findDentistByDentistId(scheduleDTO.getDentistId()));
+            return new ScheduleDTO(scheduleRepository.save(schedule), 0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public ScheduleDTO bookingByUser(ScheduleDTO scheduleDTO) {
+        LogUtil.logger.info("Create new Schedule by User");
+        try {
+            List<Dentist> dentists = dentistRepository.findAll().stream().filter(Dentist::getStatus).toList();
+            Schedule schedule = new Schedule(scheduleDTO.getTitle(),
+                    scheduleDTO.getDescription(),
+                    DateUtil.convertString2Date(scheduleDTO.getBookingDatetime()),
+                    userRepository.findUserByUserId(scheduleDTO.getUserId()),
+                    dentists.get(new Random().nextInt(dentists.size())));
             return new ScheduleDTO(scheduleRepository.save(schedule), 0);
         } catch (Exception e) {
             e.printStackTrace();
