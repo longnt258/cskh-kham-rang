@@ -34,7 +34,6 @@ public class IncomingCallingProcess extends BroadcastReceiver {
         if(!MyData.getInstance().getStatus()) {
             return;
         }
-
         String incomingCallNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER); // Lấy số điện thoại
         /* because of duplication (vì chương trình sẽ gọi 2 lần: lần 1 sdt = null, lần 2 sdt != null nên cần range điều kiện này)
         *  Đặt flag để tránh bị lẫn lộn giữa EXTRA_STATE_OFFHOOK và EXTRA_STATE_IDLE vì

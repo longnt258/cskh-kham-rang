@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Services"
+    "\\Services",
+    "\\UserControlls"
   ],
-  "SelectedNode": "\\Services\\APIService.cs",
+  "SelectedNode": "\\UserControlls\\CustomerPanel.cs",
   "PreviewInSolutionExplorer": false
 }

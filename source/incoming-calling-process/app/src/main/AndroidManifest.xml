@@ -10,7 +10,6 @@
     <!-- Allowing for calling api -->
     <uses-permission android:name="android.permission.INTERNET"/>
 
-    <!-- android:usesCleartextTraffic="true" -> using for http -->
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -31,7 +30,7 @@
             </intent-filter>
         </activity>
         
-        <receiver android:name=".IncomingCallingProcess"
+        <receiver android:name="IncomingCallingProcess"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE"/>

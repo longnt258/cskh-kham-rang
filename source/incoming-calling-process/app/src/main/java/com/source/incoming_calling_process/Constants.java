@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Constants {
-    public static final String IP = "http://10.10.0.61:8080/api/v1/";
+    public static final String IP = "http://192.168.1.82:8080/api/v1/";
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     public static String convertDate2String(Date date) {
