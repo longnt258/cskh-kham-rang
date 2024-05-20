@@ -116,6 +116,7 @@ namespace manager_application
             else
             {
                 MessageBox.Show("Có lỗi xảy ra! Vui lòng thử lại");
+                Close();
             }
             
         }

@@ -17,6 +17,8 @@ namespace manager_application.Services
             _httpClient.BaseAddress = new Uri("http://localhost:8080/api/v1/");
             _httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
+
+
         public static APIService GetInstance()
         {
             if (instance == null)
