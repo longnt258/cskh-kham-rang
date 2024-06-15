@@ -145,7 +145,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "DashboardFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DashboardFrm";
+            this.Text = "Nha Khoa Nha Việt";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DashboardFrm_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

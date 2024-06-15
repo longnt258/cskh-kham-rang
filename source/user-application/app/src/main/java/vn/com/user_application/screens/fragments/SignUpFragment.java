@@ -129,7 +129,7 @@ public class SignUpFragment extends Fragment {
                     startActivity(new Intent(requireActivity(), MainActivity.class));
                     requireActivity().finish();
                 }else {
-                    Toast.makeText(requireContext(), "Có gì đó không ổn!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
             @Override

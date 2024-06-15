@@ -106,7 +106,11 @@ namespace manager_application
                 UserId = cus.Id,
                 Title = title
             };
-
+            if (cus == null)
+            {
+                MessageBox.Show("Không có thông tin khách hàng!");
+                return;
+            }
             Response<Schedule> res = await scheduleService.insert(schedule);
             if(res.Status == 1)
             {
@@ -116,6 +120,7 @@ namespace manager_application
             else
             {
                 MessageBox.Show("Có lỗi xảy ra! Vui lòng thử lại");
+                Close();
             }
             
         }
@@ -141,7 +146,11 @@ namespace manager_application
                 UserName = usernmae,
                 Password = password,
             };
-
+            if (cus == null)
+            {
+                MessageBox.Show("Không có thông tin khách hàng!");
+                return;
+            }
             Response<Customer> resCus = await authServices.registerNewCus(customer);
             if (resCus.Status == 1 && resCus.data != null)
             {

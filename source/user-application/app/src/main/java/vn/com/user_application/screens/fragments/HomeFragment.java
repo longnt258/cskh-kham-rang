@@ -140,11 +140,11 @@ public class HomeFragment extends Fragment {
 
     private void showInContextUI() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage("This function need your permission!! \n If you deny, this function will be not available to used");
-        builder.setTitle("Alert!!");
+        builder.setMessage("Chức năng này cần sự cho phép của bạn! Nếu bạn không cho phép sẽ không sử dụng được!");
+        builder.setTitle("Thông báo!!");
         builder.setNegativeButton("Refuse",(dialog, which) -> {
             dialog.dismiss();
-            Toast.makeText(requireActivity(), "This function is not available due to permission denied", Toast.LENGTH_SHORT).show();
+            Toast.makeText(requireActivity(), "Chức năng này không khả thi vì không được cấp quyền", Toast.LENGTH_SHORT).show();
         });
         builder.setPositiveButton("OK!", ((dialog, which) -> requestPermissionLauncher.launch(Manifest.permission.CALL_PHONE)));
         builder.show();
@@ -152,7 +152,11 @@ public class HomeFragment extends Fragment {
 
     private void callSupport() {
         Intent intent = new Intent(Intent.ACTION_CALL);
+<<<<<<< HEAD
         intent.setData(Uri.parse("tel:" + "+84707965470"));
+=======
+        intent.setData(Uri.parse("tel:" + "+84"));
+>>>>>>> origin/master
         startActivity(intent);
     }
 
