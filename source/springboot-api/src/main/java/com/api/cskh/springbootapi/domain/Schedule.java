@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Date;
 import java.util.UUID;
@@ -12,6 +15,7 @@ import java.util.UUID;
 @NoArgsConstructor
 //@Builder
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "t_schedule")
 public class Schedule {
     @Id
@@ -34,6 +38,15 @@ public class Schedule {
     // default 1 = pending, 2 = success, 0 = cancel
     @Column(name = "status", nullable = false)
     private Integer status;
+
+    @Column(name = "notification", nullable = false)
+    private boolean notif = false;
+
+    @CreatedDate
+    private Date createdDate;
+
+    @LastModifiedDate
+    private Date modifiedDate;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)

@@ -37,10 +37,10 @@ dependencies {
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
     implementation libs.cardview
-    // Retrofit to call API
+    // Retrofit to call API --> gọi API từ springboot-api
     implementation libs.retrofit
     implementation libs.converter.gson
-    // Circular Image
+    // Circular Image --> Thư viện UI reder hình tròn
     implementation libs.circleimageview
 
 }

@@ -5,8 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -14,6 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "t_user")
 public class User {
     @Id
@@ -35,6 +40,9 @@ public class User {
 
     @Column(name = "phone_number", unique = true, length = 10)
     private String phoneNumber;
+
+    @CreatedDate
+    private Date createdDate;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<CallingHistory> callingHistories;

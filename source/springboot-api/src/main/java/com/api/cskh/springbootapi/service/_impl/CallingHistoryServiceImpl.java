@@ -11,7 +11,9 @@ import com.api.cskh.springbootapi.service.CallingHistoryService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,9 +26,14 @@ public class CallingHistoryServiceImpl implements CallingHistoryService {
     @Override
     public List<CallingHistoryDTO> findAll() {
         LogUtil.logger.info("Find all CallingHistory");
-        return callingHistoryRepository.findAll()
-                .stream().map(CallingHistoryDTO::new)
-                .collect(Collectors.toList());
+        List<CallingHistoryDTO> cHResultList = new LinkedList<>();
+        List<CallingHistory> callingHistories = callingHistoryRepository.findAll();
+        callingHistories.sort(Comparator.comparing(CallingHistory::getCreatedDate));
+        callingHistories.forEach(c -> {
+            cHResultList.add(new CallingHistoryDTO(c));
+        });
+
+        return cHResultList;
     }
 
     @Override

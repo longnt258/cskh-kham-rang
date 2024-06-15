@@ -12,6 +12,7 @@ import com.api.cskh.springbootapi.service.ScheduleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -27,7 +28,9 @@ public class ScheduleServiceImpl implements ScheduleService {
     public List<ScheduleDTO> findAll() {
         LogUtil.logger.info("Find all Schedule");
         List<ScheduleDTO> scheduleResultList = new LinkedList<>();
-        scheduleRepository.findAll().forEach(s -> {
+        List<Schedule> schedules = scheduleRepository.findAll();
+        schedules.sort(Comparator.comparing(Schedule::getCreatedDate).reversed());
+        schedules.forEach(s -> {
             scheduleResultList.add(new ScheduleDTO(s));
         });
 

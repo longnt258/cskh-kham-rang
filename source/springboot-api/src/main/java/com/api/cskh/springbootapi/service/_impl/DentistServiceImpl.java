@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,9 +23,13 @@ public class DentistServiceImpl implements DentistService {
     @Override
     public List<DentistDTO> findAll() {
         LogUtil.logger.info("Find all Dentist");
-        return dentistRepository.findAll()
-                .stream().map(DentistDTO::new)
-                .collect(Collectors.toList());
+        List<DentistDTO> dentistResultList = new LinkedList<>();
+        List<Dentist> dentists = dentistRepository.findAll();
+        dentists.sort(Comparator.comparing(Dentist::getCreatedDate));
+        dentists.forEach(d -> {
+            dentistResultList.add(new DentistDTO(d));
+        });
+        return dentistResultList;
     }
 
     @Override

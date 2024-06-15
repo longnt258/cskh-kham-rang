@@ -11,4 +11,6 @@ public interface ScheduleRepository extends JpaRepository<Schedule, Integer> {
     List<Schedule> findScheduleByUserUserId(Integer userId);
 
     List<Schedule> findScheduleByDentistDentistId(Integer dentistId);
+
+    List<Schedule> findScheduleByStatusAndNotif(Integer status, boolean notif);
 }

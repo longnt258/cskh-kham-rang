@@ -5,7 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -14,6 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "t_dentist")
 public class Dentist {
     @Id
@@ -33,6 +37,9 @@ public class Dentist {
 
     @Column(name = "end_working_datetime")
     private Date endDatetime;
+
+    @CreatedDate
+    private Date createdDate;
 
     @OneToMany(mappedBy = "dentist")
     private List<Schedule> schedules;

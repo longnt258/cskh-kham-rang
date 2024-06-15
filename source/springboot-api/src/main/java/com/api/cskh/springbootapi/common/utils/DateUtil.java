@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class DateUtil {
     private static Calendar cal = Calendar.getInstance();
@@ -30,5 +31,14 @@ public class DateUtil {
 
     public static Date convertString2Date(String dateStr) throws ParseException {
         return dateFormat.parse(dateStr);
+    }
+
+    public static Long getHoursRemained(Date date1, Date date2) {
+        Long milliSecondRemained = date1.getTime() - date2.getTime();
+        return TimeUnit.MILLISECONDS.toHours(milliSecondRemained);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getHoursRemained(new Date(), getTimeWithDate(2024, 6, 15, 12, 20, 0)));
     }
 }
