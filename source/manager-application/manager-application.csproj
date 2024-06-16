@@ -88,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\NotificationInterface.cs" />
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Presentations\AddOrUpdateDentist.cs">
       <SubType>Form</SubType>

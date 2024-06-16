@@ -1,4 +1,5 @@
-﻿using manager_application.NavigationControllers;
+﻿using manager_application.Interfaces;
+using manager_application.NavigationControllers;
 using manager_application.UserControlls;
 using manager_application.UserControls;
 using System;
@@ -13,18 +14,16 @@ using System.Windows.Forms;
 
 namespace manager_application
 {
-    public partial class DashboardFrm : Form
+    public partial class DashboardFrm : Form, NotificationInterface
     {
-
         private readonly Form previousFrom;
         private DashboardNavigationController controller;
 
-        public DashboardFrm(Form previouseFrm)
+        public DashboardFrm(Form previousFrm)
         {
-            
             InitializeComponent();
-            previousFrom = previouseFrm;
-            previouseFrm.Hide();
+            previousFrom = previousFrm;
+            previousFrm.Hide();
             InitializeNavigationController();
         }
 
@@ -36,7 +35,7 @@ namespace manager_application
                 new CustomerPanel(),
                 new SchedulePanel(),
                 new HistoryCallPanel(),
-                new NotificationPanel()
+                new NotificationPanel(this)
             };
             controller = new DashboardNavigationController(list, panelContent);
             controller.Display(0);
@@ -65,6 +64,7 @@ namespace manager_application
         private void BtnSetting_Click(object sender, EventArgs e)
         {
             controller.Display(4);
+            updateNewNotify(false);
         }
 
         private void DashboardFrm_FormClosing(object sender, FormClosingEventArgs e)
@@ -73,7 +73,22 @@ namespace manager_application
             {
                 e.Cancel = true;
             }
-            else { previousFrom.Close(); }
+            else
+            {
+                previousFrom.Close();
+            }
+        }
+
+        public void updateNewNotify(bool isNewNotify)
+        {
+            if (isNewNotify)
+            {
+                btnSetting.Text = btnSetting.Text + " (new)";
+            }
+            else
+            {
+                btnSetting.Text = "Thông báo";
+            }
         }
     }
 }

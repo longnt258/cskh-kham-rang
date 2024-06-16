@@ -1,4 +1,5 @@
-﻿using manager_application.Models;
+﻿using manager_application.Interfaces;
+using manager_application.Models;
 using manager_application.Services;
 using manager_application.UserControlls;
 using System;
@@ -10,23 +11,26 @@ namespace manager_application.UserControls
 {
     public partial class NotificationPanel : UserControl
     {
-        private List<Notification> notifications;
+        private List<Notification> notifications = new List<Notification>();
         private readonly NotificationService notificationService;
         private System.Windows.Forms.Timer notificationTimer;
+        private NotificationInterface notificationInterface;
 
-        public NotificationPanel()
+        public NotificationPanel(NotificationInterface notificationInterface)
         {
+            this.notificationInterface = notificationInterface;
             notificationService = new NotificationService();
             InitializeComponent();
             InitializeTimer();
         }
 
-        // Tạo bộ đếm giờ 
+
+        // Initialize the timer
         private void InitializeTimer()
         {
             notificationTimer = new Timer
             {
-                Interval = 60000 // 60000 ms = 1 phút
+                Interval = 60000 // 60000 ms = 1 minute
             };
             notificationTimer.Tick += new EventHandler(OnTimerTick);
             notificationTimer.Start();
@@ -51,20 +55,18 @@ namespace manager_application.UserControls
             }
         }
 
-        // Khai báo hành động khi timer đếm về 0
         private async void OnTimerTick(object sender, EventArgs e)
         {
             await CheckForNewNotifications();
         }
 
-        // Kiểm tra thông báo mới
         private async Task CheckForNewNotifications()
         {
             var newNotifications = await notificationService.GetAllNotification();
-            // Check nếu có thông báo mới sẽ update lại UI
             if (newNotifications.Count != notifications.Count)
             {
                 notifications = newNotifications;
+                notificationInterface.updateNewNotify(true);
                 UpdateNotificationItems();
             }
         }
