@@ -55,6 +55,7 @@
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
@@ -87,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Notification.cs" />
     <Compile Include="Presentations\AddOrUpdateDentist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +128,7 @@
     <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\DentistService.cs" />
     <Compile Include="Services\HistoryCallService.cs" />
+    <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\ScheduleService.cs" />
     <Compile Include="Presentations\SignUpFrm.cs">
       <SubType>Form</SubType>
@@ -151,17 +154,23 @@
     <Compile Include="UserControlls\HistoryCallPanel.Designer.cs">
       <DependentUpon>HistoryCallPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlls\NotificationItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlls\NotificationItem.Designer.cs">
+      <DependentUpon>NotificationItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlls\SchedulePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControlls\SchedulePanel.Designer.cs">
       <DependentUpon>SchedulePanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlls\SettingPanel.cs">
+    <Compile Include="UserControlls\NotificationPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlls\SettingPanel.Designer.cs">
-      <DependentUpon>SettingPanel.cs</DependentUpon>
+    <Compile Include="UserControlls\NotificationPanel.Designer.cs">
+      <DependentUpon>NotificationPanel.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Presentations\AddOrUpdateDentist.resx">
       <DependentUpon>AddOrUpdateDentist.cs</DependentUpon>
@@ -197,11 +206,14 @@
     <EmbeddedResource Include="UserControlls\HistoryCallPanel.resx">
       <DependentUpon>HistoryCallPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControlls\NotificationItem.resx">
+      <DependentUpon>NotificationItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlls\SchedulePanel.resx">
       <DependentUpon>SchedulePanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlls\SettingPanel.resx">
-      <DependentUpon>SettingPanel.cs</DependentUpon>
+    <EmbeddedResource Include="UserControlls\NotificationPanel.resx">
+      <DependentUpon>NotificationPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

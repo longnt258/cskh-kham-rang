@@ -1,5 +1,6 @@
 ﻿using manager_application.NavigationControllers;
 using manager_application.UserControlls;
+using manager_application.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,7 +36,7 @@ namespace manager_application
                 new CustomerPanel(),
                 new SchedulePanel(),
                 new HistoryCallPanel(),
-                new SettingPanel()
+                new NotificationPanel()
             };
             controller = new DashboardNavigationController(list, panelContent);
             controller.Display(0);

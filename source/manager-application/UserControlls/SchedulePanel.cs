@@ -30,25 +30,29 @@ namespace manager_application.UserControlls
         {
             dataGridView1.Rows.Clear();
             Response<List<Schedule>> response = await service.GetAllSchedules();
-            if (response.Status == 1) 
+            if (response.Status == 1)
             {
                 schedules = response.data;
 
-                for (int i = 0; i < response.data.Count; i++) {
+                for (int i = 0; i < response.data.Count; i++)
+                {
                     Schedule schedule = response.data[i];
                     string status;
-                    if(schedule.Status == 1)
+                    if (schedule.Status == 1)
                     {
                         status = "Đang xử lý";
-                    }else if(schedule.Status == 2)
+                    }
+                    else if (schedule.Status == 2)
                     {
                         status = "Đã đặt thành công";
                     }
-                    else{
+                    else
+                    {
                         status = "Đã hủy";
                     }
                     dataGridView1.Rows.Add(new object[] {
                         i.ToString(),
+                        schedule.PhoneNumber,
                         schedule.Title,
                         schedule.Description,
                         schedule.BookDateTime.ToString(),
@@ -127,6 +131,50 @@ namespace manager_application.UserControlls
             {
                 MessageBox.Show(response.Message);
             }
+        }
+
+        private void btnFindByPhoneNumber_Click(object sender, EventArgs e)
+        {
+            string phoneNumber = textBox1.Text;
+            if (phoneNumber.Length == 0)
+            {
+                InitView();
+            }
+            List<Schedule> findByPhoneSchedules = new List<Schedule>
+            {
+                schedules.Find(s => s.PhoneNumber.Contains(phoneNumber))
+            };
+            if(findByPhoneSchedules.Count > 0)
+            {
+                for (int i = 0; i < findByPhoneSchedules.Count; i++)
+                {
+                    Schedule schedule = findByPhoneSchedules[i];
+                    string status;
+                    if (schedule.Status == 1)
+                    {
+                        status = "Đang xử lý";
+                    }
+                    else if (schedule.Status == 2)
+                    {
+                        status = "Đã đặt thành công";
+                    }
+                    else
+                    {
+                        status = "Đã hủy";
+                    }
+                    dataGridView1.Rows.Add(new object[] {
+                        i.ToString(),
+                        schedule.PhoneNumber,
+                        schedule.Title,
+                        schedule.Description,
+                        schedule.BookDateTime.ToString(),
+                        schedule.DentistName,
+                        schedule.UserFullName,
+                        status
+                    });
+                }
+            }
+            
         }
     }
 }

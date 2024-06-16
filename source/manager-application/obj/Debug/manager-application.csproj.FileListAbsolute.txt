@@ -36,8 +36,9 @@ D:\Work\cskh-kham-rang\source\manager-application\obj\Debug\manager_application.
 D:\Work\cskh-kham-rang\source\manager-application\obj\Debug\manager_application.UserControlls.DentistPanel.resources
 D:\Work\cskh-kham-rang\source\manager-application\obj\Debug\manager_application.UserControlls.HistoryCallPanel.resources
 D:\Work\cskh-kham-rang\source\manager-application\obj\Debug\manager_application.UserControlls.SchedulePanel.resources
-D:\Work\cskh-kham-rang\source\manager-application\obj\Debug\manager_application.UserControlls.SettingPanel.resources
 D:\Work\cskh-kham-rang\source\manager-application\obj\Debug\manager_application.AddScheduleFrm.resources
 D:\Work\cskh-kham-rang\source\manager-application\obj\Debug\manager_application.AddOrUpdateDentist.resources
 D:\Workspace\Project-lam-them\cskh-kham-rang\source\manager-application\obj\Debug\manager-application.exe
 D:\Workspace\Project-lam-them\cskh-kham-rang\source\manager-application\obj\Debug\manager-application.pdb
+D:\Work\cskh-kham-rang\source\manager-application\obj\Debug\manager_application.UserControlls.NotificationItem.resources
+D:\Work\cskh-kham-rang\source\manager-application\obj\Debug\manager_application.UserControls.NotificationPanel.resources

@@ -16,8 +16,8 @@ namespace manager_application
     public partial class AddOrUpdateDentist : Form
     {
 
-        private Dentist dentist;
-        private DentistService dentistService;
+        private readonly Dentist dentist;
+        private readonly DentistService dentistService;
         private readonly bool isEdit;
 
         public AddOrUpdateDentist(Dentist dentist)
@@ -51,7 +51,7 @@ namespace manager_application
             lbContentDialog.Text = "THÊM NHA SĨ";
         }
 
-        private async void btnOK_Click(object sender, EventArgs e)
+        private void btnOK_Click(object sender, EventArgs e)
         {
             if (isEdit)
             {
@@ -93,8 +93,10 @@ namespace manager_application
 
         private async void PerformInsert()
         {
-            Dentist dentist = new Dentist();
-            dentist.FullName = tbName.Text;
+            Dentist dentist = new Dentist
+            {
+                FullName = tbName.Text
+            };
             if (rdbActive.Checked)
             {
                 dentist.Status = true;

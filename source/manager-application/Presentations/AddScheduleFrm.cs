@@ -97,20 +97,23 @@ namespace manager_application
                 comboBox1.Focus();
                 return;
             }
-            Schedule schedule = new Schedule()
-            {
-                BookDateTime = dateTimeSelected,
-                DentistId = selectedDentist.DentistId,
-                Description = description,
-                Status = 1,
-                UserId = cus.Id,
-                Title = title
-            };
+
             if (cus == null)
             {
                 MessageBox.Show("Không có thông tin khách hàng!");
                 return;
             }
+
+            Schedule schedule = new Schedule()
+            {
+                BookDateTime = dateTimeSelected,
+                DentistId = selectedDentist.DentistId,
+                Description = description,
+                Status = 2,
+                UserId = cus.Id,
+                Title = title
+            };
+      
             Response<Schedule> res = await scheduleService.insert(schedule);
             if(res.Status == 1)
             {

@@ -27,6 +27,8 @@ namespace manager_application.models
         public int UserId { get; set; }
         [JsonProperty(PropertyName = "dentistId",NullValueHandling = NullValueHandling.Ignore)]
         public int DentistId { get; set; }
+        [JsonProperty(PropertyName = "phoneNumber")]
+        public string PhoneNumber { get; set; }
 
         public override string ToString()
         {

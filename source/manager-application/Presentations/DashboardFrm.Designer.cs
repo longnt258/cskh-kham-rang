@@ -44,7 +44,7 @@
             // 
             this.panelContent.Location = new System.Drawing.Point(220, 2);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1032, 667);
+            this.panelContent.Size = new System.Drawing.Size(1043, 667);
             this.panelContent.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -75,7 +75,7 @@
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Size = new System.Drawing.Size(218, 98);
             this.btnSetting.TabIndex = 9;
-            this.btnSetting.Text = "Setting";
+            this.btnSetting.Text = "Thông báo";
             this.btnSetting.UseVisualStyleBackColor = true;
             this.btnSetting.Click += new System.EventHandler(this.BtnSetting_Click);
             // 
@@ -86,7 +86,7 @@
             this.btnDentist.Name = "btnDentist";
             this.btnDentist.Size = new System.Drawing.Size(218, 96);
             this.btnDentist.TabIndex = 5;
-            this.btnDentist.Text = "Dentists";
+            this.btnDentist.Text = "Nha sĩ";
             this.btnDentist.UseVisualStyleBackColor = true;
             this.btnDentist.Click += new System.EventHandler(this.BtnDentist_Click);
             // 
@@ -97,7 +97,7 @@
             this.btnHistoryCall.Name = "btnHistoryCall";
             this.btnHistoryCall.Size = new System.Drawing.Size(218, 96);
             this.btnHistoryCall.TabIndex = 8;
-            this.btnHistoryCall.Text = "HistoryCall";
+            this.btnHistoryCall.Text = "Lịch sử cuộc gọi";
             this.btnHistoryCall.UseVisualStyleBackColor = true;
             this.btnHistoryCall.Click += new System.EventHandler(this.BtnHistoryCall_Click);
             // 
@@ -108,7 +108,7 @@
             this.btnCustomer.Name = "btnCustomer";
             this.btnCustomer.Size = new System.Drawing.Size(218, 96);
             this.btnCustomer.TabIndex = 6;
-            this.btnCustomer.Text = "Customer";
+            this.btnCustomer.Text = "Khách hàng";
             this.btnCustomer.UseVisualStyleBackColor = true;
             this.btnCustomer.Click += new System.EventHandler(this.BtnCustomer_Click);
             // 
@@ -119,7 +119,7 @@
             this.btnSchedule.Name = "btnSchedule";
             this.btnSchedule.Size = new System.Drawing.Size(218, 96);
             this.btnSchedule.TabIndex = 7;
-            this.btnSchedule.Text = "Schedule";
+            this.btnSchedule.Text = "Lịch";
             this.btnSchedule.UseVisualStyleBackColor = true;
             this.btnSchedule.Click += new System.EventHandler(this.BtnSchedule_Click);
             // 

@@ -15,7 +15,7 @@ namespace manager_application.UserControlls
 {
     public partial class HistoryCallPanel : UserControl
     {
-        private HistoryCallService historyCallingService;
+        private readonly HistoryCallService historyCallingService;
 
         public HistoryCallPanel()
         {
@@ -39,7 +39,7 @@ namespace manager_application.UserControlls
                         ch.Status? "Complete" : "Missing",
                         ch.Description,
                         ch.StartDate,
-                        ch.EndDate != null ? ch.EndDate: "",
+                        ch.EndDate ?? "",
                         ch.UserFullName,
                         ch.PhoneNumber
                     });

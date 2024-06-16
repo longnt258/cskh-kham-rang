@@ -40,12 +40,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.colSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBookingDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDentistName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCustomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnFindByPhoneNumber = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -152,6 +155,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSTT,
+            this.colPhoneNumber,
             this.colTitle,
             this.colDescription,
             this.colBookingDateTime,
@@ -184,6 +188,12 @@
             this.colSTT.HeaderText = "STT";
             this.colSTT.Name = "colSTT";
             this.colSTT.ReadOnly = true;
+            // 
+            // colPhoneNumber
+            // 
+            this.colPhoneNumber.HeaderText = "Số điện thoại";
+            this.colPhoneNumber.Name = "colPhoneNumber";
+            this.colPhoneNumber.ReadOnly = true;
             // 
             // colTitle
             // 
@@ -227,11 +237,32 @@
             this.colStatus.Name = "colStatus";
             this.colStatus.ReadOnly = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Location = new System.Drawing.Point(774, 277);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(160, 20);
+            this.textBox1.TabIndex = 6;
+            // 
+            // btnFindByPhoneNumber
+            // 
+            this.btnFindByPhoneNumber.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnFindByPhoneNumber.Location = new System.Drawing.Point(940, 275);
+            this.btnFindByPhoneNumber.Name = "btnFindByPhoneNumber";
+            this.btnFindByPhoneNumber.Size = new System.Drawing.Size(75, 23);
+            this.btnFindByPhoneNumber.TabIndex = 7;
+            this.btnFindByPhoneNumber.Text = "Tìm";
+            this.btnFindByPhoneNumber.UseVisualStyleBackColor = true;
+            this.btnFindByPhoneNumber.Click += new System.EventHandler(this.btnFindByPhoneNumber_Click);
+            // 
             // SchedulePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Controls.Add(this.btnFindByPhoneNumber);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -257,11 +288,14 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSTT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPhoneNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBookingDateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDentistName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCustomer;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnFindByPhoneNumber;
     }
 }

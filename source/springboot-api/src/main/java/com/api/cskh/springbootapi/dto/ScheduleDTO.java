@@ -17,6 +17,7 @@ public class ScheduleDTO {
     private String userFullName;
     private Integer userId;
     private Integer dentistId;
+    private String phoneNumber;
 
     /* Phân loại cho user được quyền xem */
     // watcher: 0 --> admin, 1 --> user, 2 --> dentist
@@ -29,6 +30,7 @@ public class ScheduleDTO {
         if (watcher == 0) {
             dentistName = schedule.getDentist() != null ? schedule.getDentist().getFullName() : "";
             userFullName = schedule.getUser() != null ? schedule.getUser().getFullName() : "";
+            phoneNumber = schedule.getUser().getPhoneNumber();
         } else if (watcher == 1) {
             dentistName = schedule.getDentist() != null ? schedule.getDentist().getFullName() : "";
         } else if (watcher == 2) {
@@ -46,6 +48,7 @@ public class ScheduleDTO {
         userFullName = schedule.getUser() != null ? schedule.getUser().getFullName() : "";
         dentistId = schedule.getDentist().getDentistId();
         userId = schedule.getUser().getUserId();
+        phoneNumber = schedule.getUser().getPhoneNumber();
     }
 
 }
