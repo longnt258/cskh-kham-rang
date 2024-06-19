@@ -16,7 +16,7 @@ namespace manager_application.Models
         [JsonProperty("status")]
         public bool Status { get; set; }
         [JsonProperty("createdDate")]
-        public DateTime createdDate { get; set; }
+        public DateTime CreatedDate { get; set; }
 
         public override string ToString()
         {

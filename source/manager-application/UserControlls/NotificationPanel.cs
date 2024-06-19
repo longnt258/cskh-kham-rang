@@ -4,9 +4,11 @@ using manager_application.Services;
 using manager_application.UserControlls;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Màn hiển thị thông báo
 namespace manager_application.UserControls
 {
     public partial class NotificationPanel : UserControl
@@ -25,14 +27,16 @@ namespace manager_application.UserControls
         }
 
 
-        // Initialize the timer
+        // Khởi tạo the bộ đếm giờ
         private void InitializeTimer()
         {
             notificationTimer = new Timer
             {
-                Interval = 60000 // 60000 ms = 1 minute
+                Interval = 60000 // 60000 ms = 1 phút
             };
+            // Cài đặt sau 1p sẽ gọi hàm OnTimerTick
             notificationTimer.Tick += new EventHandler(OnTimerTick);
+            // Chạy bộ đếm giờ
             notificationTimer.Start();
         }
 
@@ -42,6 +46,7 @@ namespace manager_application.UserControls
             await InitView();
         }
 
+        // Lấy dữ liệu 
         private async Task InitView()
         {
             notifications = await notificationService.GetAllNotification();
@@ -55,22 +60,26 @@ namespace manager_application.UserControls
             }
         }
 
+        // Sau khi bộ đếm giờ đếm đến 0 sẽ chạy hàm này
         private async void OnTimerTick(object sender, EventArgs e)
         {
             await CheckForNewNotifications();
         }
 
+        // Kiểm tra xem có thông báo mới không
         private async Task CheckForNewNotifications()
         {
             var newNotifications = await notificationService.GetAllNotification();
             if (newNotifications.Count != notifications.Count)
             {
                 notifications = newNotifications;
+                // Update UI cho nút thông báo ở Dashboard
                 notificationInterface.updateNewNotify(true);
                 UpdateNotificationItems();
             }
         }
 
+        // Tạo ra 1 NotificationItem rồi thêm vào UI
         private void UpdateNotificationItems()
         {
             flowLayoutPanel1.Controls.Clear();
@@ -79,7 +88,9 @@ namespace manager_application.UserControls
                 NotificationItem item = new NotificationItem
                 {
                     Content = notification.Content,
-                    NotifTime = (DateTime.Now - notification.createdDate).ToString(@"mm") + "  Phút trước"
+                    NotifTime = (DateTime.Now - notification.CreatedDate).ToString(@"mm") + "  Phút trước",
+                    Id = notification.Id,
+                    BackColor = notification.Status == true ? Color.AliceBlue : Color.Red,
                 };
                 flowLayoutPanel1.Controls.Add(item);
             }

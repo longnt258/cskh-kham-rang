@@ -74,6 +74,7 @@
             this.Controls.Add(this.lbTitle);
             this.Name = "NotificationItem";
             this.Size = new System.Drawing.Size(1032, 96);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NotificationItem_MouseClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 

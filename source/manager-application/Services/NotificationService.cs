@@ -14,6 +14,7 @@ namespace manager_application.Services
         private readonly HttpClient _client = APIService.GetInstance().GetHttpClient();
         private HttpResponseMessage _response;
 
+        // Lấy toàn bộ thông báo
         public async Task<List<Notification>> GetAllNotification()
         {
             try
@@ -23,6 +24,24 @@ namespace manager_application.Services
                 if (_response.IsSuccessStatusCode)
                 {
                     List<Notification> list = await _response.Content.ReadAsAsync<List<Notification>>();
+                    return list;
+                }
+                return null;
+            }
+            catch (Exception ex) { throw new Exception(ex.Message, ex); }
+        }
+
+        // Cập nhật thông báo dựa trên id của thông báo
+        public async Task<Notification> UpdateNotificatioNStatus(int notificationId)
+        {
+           
+            try
+            {
+                _response = await _client.PostAsync($"notification?notificationId={notificationId}",null);
+                _response.EnsureSuccessStatusCode();
+                if (_response.IsSuccessStatusCode)
+                {
+                    Notification list = await _response.Content.ReadAsAsync<Notification>();
                     return list;
                 }
                 return null;
