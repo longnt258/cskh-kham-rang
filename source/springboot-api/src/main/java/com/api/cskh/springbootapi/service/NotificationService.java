@@ -8,4 +8,6 @@ public interface NotificationService {
     List<Notification> findAll();
 
     void runAutoNotification();
+
+    Notification updateStatus(Integer notificationId);
 }

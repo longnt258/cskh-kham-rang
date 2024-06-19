@@ -52,4 +52,11 @@ public class NotificationServiceImpl implements NotificationService {
             }
         }
     }
+
+    @Override
+    public Notification updateStatus(Integer notificationId) {
+        Notification n = notificationRepository.findById(notificationId).orElseThrow();
+        n.setStatus(true);
+        return notificationRepository.save(n);
+    }
 }
