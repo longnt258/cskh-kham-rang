@@ -32,7 +32,7 @@ namespace manager_application.UserControls
         {
             notificationTimer = new Timer
             {
-                Interval = 60000 // 60000 ms = 1 phút
+                Interval = 5000 // 60000 ms = 1 phút
             };
             // Cài đặt sau 1p sẽ gọi hàm OnTimerTick
             notificationTimer.Tick += new EventHandler(OnTimerTick);

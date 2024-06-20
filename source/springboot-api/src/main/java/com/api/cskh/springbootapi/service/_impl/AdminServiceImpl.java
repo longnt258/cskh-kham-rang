@@ -22,7 +22,6 @@ public class AdminServiceImpl implements AdminService {
         adminRepository.findAll().forEach(ad -> {
             adminResultList.add(new AdminDTO(ad));
         });
-
         return adminResultList;
     }
 
