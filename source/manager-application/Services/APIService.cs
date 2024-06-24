@@ -14,7 +14,7 @@ namespace manager_application.Services
         private APIService()
         {
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("http://localhost:8080/api/v1/");
+            _httpClient.BaseAddress = new Uri("http://www.pttrunghieu.com:1025/api/v1/");
             _httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
 
