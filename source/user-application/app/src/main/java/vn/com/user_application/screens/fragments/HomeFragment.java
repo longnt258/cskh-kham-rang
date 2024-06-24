@@ -152,11 +152,7 @@ public class HomeFragment extends Fragment {
 
     private void callSupport() {
         Intent intent = new Intent(Intent.ACTION_CALL);
-<<<<<<< HEAD
         intent.setData(Uri.parse("tel:" + "+84707965470"));
-=======
-        intent.setData(Uri.parse("tel:" + "+84"));
->>>>>>> origin/master
         startActivity(intent);
     }
 

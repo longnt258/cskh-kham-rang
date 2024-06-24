@@ -124,7 +124,8 @@ public class SeedDataRunner implements CommandLineRunner {
         dentist5.setSchedules(schedules2);
         dentistRepository.saveAll(List.of(dentist1, dentist3, dentist5));
 
-        CallingHistory callingHistory = new CallingHistory()
+        new CallingHistory();
+        CallingHistory callingHistory = CallingHistory
                 .builder()
                 .phoneNumber("0123456789")
                 .status(true)

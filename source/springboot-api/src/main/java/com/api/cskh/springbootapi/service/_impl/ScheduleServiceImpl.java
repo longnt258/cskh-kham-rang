@@ -124,7 +124,7 @@ public class ScheduleServiceImpl implements ScheduleService {
             }
             if(inputScheduleUpdate.getDentistId() != null) {
                 schedule.setDentist(dentistRepository.findDentistByDentistId(inputScheduleUpdate.getDentistId()));
-            };
+            }
 
             return new ScheduleDTO(scheduleRepository.save(schedule), 0);
         } catch (Exception e) {

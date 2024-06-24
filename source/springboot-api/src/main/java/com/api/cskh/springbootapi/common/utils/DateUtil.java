@@ -7,8 +7,8 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class DateUtil {
-    private static Calendar cal = Calendar.getInstance();
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    private static final Calendar cal = Calendar.getInstance();
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
     public static Date getTimeWithoutDate(int hour, int minute, int second, int millisecond) {
         cal.set(Calendar.HOUR_OF_DAY, hour);

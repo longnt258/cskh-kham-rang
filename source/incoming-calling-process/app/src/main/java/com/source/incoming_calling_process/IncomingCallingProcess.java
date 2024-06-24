@@ -89,7 +89,7 @@ public class IncomingCallingProcess extends BroadcastReceiver {
             jsonObject.put("endDate", Constants.convertDate2String(endDate));
         }
 
-        final String url = Constants.IP + "calling-history/create"; // Khai báo API
+        final String url = "www.pttrunghieu.com:1025/calling-history/create"; // Khai báo API
         /* Thực hiện gọi API với jsonObject được tạo ở trên */
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
             @Override
