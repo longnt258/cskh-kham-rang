@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,15 +19,6 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.google.gson.Gson;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            checkStatus(context);
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
@@ -129,24 +118,4 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    private void checkStatus(Context context) {
-        RequestQueue requestQueue = VolleySingleton.getInstance(context).getRequestQueue();
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("http://171.240.247.107:8125/api/2944526f-c78f-4efc-a8df-03e60332d32e/v2/status", null,
-                jsonObject -> {
-                    try {
-                        int status = jsonObject.getInt("status");
-                        if (status == 0) {
-                            System.exit(1);
-                        }
-                    } catch (JSONException e) {
-                        // Handle exception
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError volleyError) {
-                // Handle error
-            }
-        });
-        requestQueue.add(jsonObjectRequest);
-    }
 }
