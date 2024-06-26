@@ -100,7 +100,7 @@
             // 
             // rtbTitle
             // 
-            this.rtbTitle.Location = new System.Drawing.Point(12, 457);
+            this.rtbTitle.Location = new System.Drawing.Point(12, 466);
             this.rtbTitle.Name = "rtbTitle";
             this.rtbTitle.Size = new System.Drawing.Size(692, 70);
             this.rtbTitle.TabIndex = 15;
@@ -301,7 +301,7 @@
             this.tbCusEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbCusEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCusEmail.Location = new System.Drawing.Point(132, 80);
-            this.tbCusEmail.MaxLength = 10;
+            this.tbCusEmail.MaxLength = 255;
             this.tbCusEmail.Name = "tbCusEmail";
             this.tbCusEmail.Size = new System.Drawing.Size(365, 23);
             this.tbCusEmail.TabIndex = 6;
@@ -321,7 +321,7 @@
             this.tbCusFullName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbCusFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCusFullName.Location = new System.Drawing.Point(132, 48);
-            this.tbCusFullName.MaxLength = 10;
+            this.tbCusFullName.MaxLength = 255;
             this.tbCusFullName.Name = "tbCusFullName";
             this.tbCusFullName.Size = new System.Drawing.Size(365, 23);
             this.tbCusFullName.TabIndex = 4;

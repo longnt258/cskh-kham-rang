@@ -149,7 +149,7 @@ namespace manager_application
                 UserName = usernmae,
                 Password = password,
             };
-            if (cus == null)
+            if (customer == null)
             {
                 MessageBox.Show("Không có thông tin khách hàng!");
                 return;

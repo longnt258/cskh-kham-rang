@@ -1,7 +1,5 @@
 package com.source.incoming_calling_process;
 
-import android.annotation.SuppressLint;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

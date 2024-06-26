@@ -10,14 +10,11 @@ import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
@@ -89,20 +86,13 @@ public class IncomingCallingProcess extends BroadcastReceiver {
             jsonObject.put("endDate", Constants.convertDate2String(endDate));
         }
 
-        final String url = "www.pttrunghieu.com:1025/calling-history/create"; // Khai báo API
+        final String url = "http://www.pttrunghieu.com:1025/calling-history/create"; // Khai báo API
         /* Thực hiện gọi API với jsonObject được tạo ở trên */
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject jsonObject) {
-                Log.d("Success response", jsonObject.toString());
-                Toast.makeText(context, "OK", Toast.LENGTH_SHORT).show();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError volleyError) {
-                Log.e("Error response", volleyError.toString());
-            }
-        });
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject, jsonObject1 -> {
+            Log.d("Success response", jsonObject1.toString());
+            Toast.makeText(context, "OK", Toast.LENGTH_SHORT).show();
+        },
+                volleyError -> Log.e("Error response", volleyError.toString()));
         requestQueue.add(jsonObjectRequest);
     }
 }
