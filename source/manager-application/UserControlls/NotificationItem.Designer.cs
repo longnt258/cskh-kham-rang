@@ -57,7 +57,7 @@
             // 
             this.lbNotifTime.AutoSize = true;
             this.lbNotifTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNotifTime.Location = new System.Drawing.Point(883, 56);
+            this.lbNotifTime.Location = new System.Drawing.Point(881, 77);
             this.lbNotifTime.Name = "lbNotifTime";
             this.lbNotifTime.Size = new System.Drawing.Size(34, 17);
             this.lbNotifTime.TabIndex = 2;
@@ -73,7 +73,7 @@
             this.Controls.Add(this.lbContent);
             this.Controls.Add(this.lbTitle);
             this.Name = "NotificationItem";
-            this.Size = new System.Drawing.Size(1032, 96);
+            this.Size = new System.Drawing.Size(1032, 134);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NotificationItem_MouseClick);
             this.ResumeLayout(false);
             this.PerformLayout();

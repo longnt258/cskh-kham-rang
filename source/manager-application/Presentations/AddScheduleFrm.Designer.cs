@@ -321,7 +321,7 @@
             this.tbCusFullName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbCusFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCusFullName.Location = new System.Drawing.Point(132, 48);
-            this.tbCusFullName.MaxLength = 255;
+            this.tbCusFullName.MaxLength = 50;
             this.tbCusFullName.Name = "tbCusFullName";
             this.tbCusFullName.Size = new System.Drawing.Size(365, 23);
             this.tbCusFullName.TabIndex = 4;

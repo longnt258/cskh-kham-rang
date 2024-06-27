@@ -43,7 +43,7 @@ public class NotificationServiceImpl implements NotificationService {
 
                 // Tạo thông báo từ các Schedules còn 6 tiếng và cập nhật trạng thái đã thong báo cho Schedule (notif = true)
                 Notification n = new Notification();
-                n.setContent("Lich hen " + s.getTitle() + "\nTen khach hang" + s.getUser().getFullName() + "\nSo dien thoai" + s.getUser().getPhoneNumber() + " sap den vao luc " + DateUtil.convertDate2String(s.getBookingDatetime()));
+                n.setContent("Lich hen: " + "\nChuan doan" + s.getTitle() + "\nTen khach hang: " + s.getUser().getFullName() + "\nSo dien thoai: " + s.getUser().getPhoneNumber() + " sap den vao luc " + DateUtil.convertDate2String(s.getBookingDatetime()));
                 notificationRepository.save(n);
 
                 s.setNotif(true);
